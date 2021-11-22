@@ -24,14 +24,11 @@ public class Processos {
 	private int nro_processo;
 	@OneToOne
 	private Documento documento;
-
 	@ManyToOne
 	private Usuario usuario;
 
 	
-	
-	
-	
+
 	public Documento getDocumentacao() {
 		return getDocumento();
 	}

@@ -1,4 +1,4 @@
-package ProjetoFinal.DTOs;
+package ProjetoFinal.controllers.dtos;
 
 import java.util.Date;
 
