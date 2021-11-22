@@ -23,7 +23,7 @@ public class Processos {
 	private Date data_criacao;
 	private int nro_processo;
 	@OneToOne
-	private Documentacao documentacao;
+	private Documento documentacao;
 	@ManyToOne
 	private Usuario usuario;
 	

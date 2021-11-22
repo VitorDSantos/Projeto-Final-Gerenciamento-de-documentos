@@ -26,5 +26,5 @@ public class Cliente {
 	private Integer telefone;
 	private int nro_processo;
 	@OneToOne
-	private Documentacao documentacao;
+	private Documento documentacao;
 }
