@@ -4,17 +4,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 @Entity
 public class Usuario {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private Integer NumeroOAB;
 	private String login;
 	private String senha;
+	@OneToMany
+	private Cliente cliente;
+	@ManyToOne
+	private Processos processos;
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
