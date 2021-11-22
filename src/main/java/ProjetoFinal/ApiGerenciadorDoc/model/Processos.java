@@ -26,8 +26,17 @@ public class Processos {
 	private Documento documentacao;
 	@ManyToOne
 	private Usuario usuario;
+
 	
 	
+	
+	
+	public Documento getDocumentacao() {
+		return documentacao;
+	}
+	public void setDocumentacao(Documento documentacao) {
+		this.documentacao = documentacao;
+	}
 	public int getId() {
 		return id;
 	}

@@ -5,6 +5,7 @@ import java.util.Date;
 
 import ProjetoFinal.ApiGerenciadorDoc.model.Cliente;
 import ProjetoFinal.ApiGerenciadorDoc.model.Documento;
+import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
 import ProjetoFinal.ApiGerenciadorDoc.model.Status;
 import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
 
@@ -21,6 +22,19 @@ public class ProcessosDto {
 	private Usuario usuario;
 	
 	
+	
+	public ProcessosDto (Processos processos) {
+		
+		this.id=processos.getId();
+		this.cliente=processos.getCliente();
+		this.status=processos.getStatus();
+		this.descricao=processos.getDescricao();
+		this.nome=processos.getNome();
+		this.data_criacao=processos.getData_criacao();
+		this.nro_processo=processos.getNro_processo();
+		this.documentacao=processos.getDocumentacao();
+		this.usuario=processos.getUsuario();
+	}
 	
 	
 	public int getId() {
