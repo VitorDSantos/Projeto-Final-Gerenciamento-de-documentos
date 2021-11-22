@@ -1,9 +1,9 @@
-package ProjetoFinal.modelo;
+package ProjetoFinal.ApiGerenciadorDoc.model;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -17,19 +17,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Usuario {
-	@Id
+public class Cliente {
+
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private int id;
 	private String nome;
-	private Integer NumeroOAB;
-	private String login;
-	private String senha;
-
-
-	
-
-	
-	
-	
+	private String email;
+	private Integer telefone;
+	private int nro_processo;
+	@OneToOne
+	private Documentacao documentacao;
 }

@@ -1,4 +1,4 @@
-package ProjetoFinal.modelo;
+package ProjetoFinal.ApiGerenciadorDoc.model;
 
 import java.util.Date;
 import javax.persistence.Entity;

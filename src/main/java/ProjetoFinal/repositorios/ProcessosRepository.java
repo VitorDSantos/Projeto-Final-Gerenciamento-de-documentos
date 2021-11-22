@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ProjetoFinal.modelo.Processos;
+import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
 
 public interface ProcessosRepository extends JpaRepository <Processos,Integer>{
 	
