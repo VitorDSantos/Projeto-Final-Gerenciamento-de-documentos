@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
-
+@Entity
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -16,10 +16,4 @@ public class Usuario {
 	private String login;
 	private String senha;
 
-
-	
-
-	
-	
-	
 }

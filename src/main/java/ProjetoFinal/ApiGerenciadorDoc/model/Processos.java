@@ -23,7 +23,7 @@ public class Processos {
 	private Date data_criacao;
 	private int nro_processo;
 	@OneToOne
-	private Documentacao documentacao;
+	private Documento documento;
 	@ManyToOne
 	private Usuario usuario;
 	
@@ -70,11 +70,11 @@ public class Processos {
 	public void setNro_processo(int nro_processo) {
 		this.nro_processo = nro_processo;
 	}
-	public Documentacao getDocumentacao() {
-		return documentacao;
+	public Documento getDocumento() {
+		return documento;
 	}
-	public void setDocumentacao(Documentacao documentacao) {
-		this.documentacao = documentacao;
+	public void setDocumento(Documento documento) {
+		this.documento = documento;
 	}
 	public Usuario getUsuario() {
 		return usuario;
