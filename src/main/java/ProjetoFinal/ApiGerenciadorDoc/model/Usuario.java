@@ -1,13 +1,5 @@
 package ProjetoFinal.ApiGerenciadorDoc.model;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-
-
 public class Usuario {
 	private Long id;
 	private String nome;
