@@ -70,12 +70,7 @@ public class Processos {
 	public void setNro_processo(int nro_processo) {
 		this.nro_processo = nro_processo;
 	}
-	public Documentacao getDocumentacao() {
-		return documentacao;
-	}
-	public void setDocumentacao(Documentacao documentacao) {
-		this.documentacao = documentacao;
-	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
