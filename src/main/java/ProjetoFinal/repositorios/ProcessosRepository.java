@@ -1,5 +1,14 @@
 package ProjetoFinal.repositorios;
 
-public interface ProcessosRepository {
+import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import ProjetoFinal.modelo.Processos;
+
+public interface ProcessosRepository extends JpaRepository <Processos,Integer>{
+	
+	List<Processos>findByNroProcessos(int nro_processo);
+	
+	Processos findById(int id);
 }
