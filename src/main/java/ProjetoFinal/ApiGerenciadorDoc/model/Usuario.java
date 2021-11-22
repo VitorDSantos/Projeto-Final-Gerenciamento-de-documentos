@@ -16,6 +16,7 @@ public class Usuario {
 	private String nome;
 	private Integer NumeroOAB;
 	private String login;
+	private int nro_processo;
 	private String senha;
 	@OneToMany
 	private Cliente cliente;
@@ -53,6 +54,12 @@ public class Usuario {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public int getNro_processo() {
+		return nro_processo;
+	}
+	public void setNro_processo(int nro_processo) {
+		this.nro_processo = nro_processo;
 	}
 
 }

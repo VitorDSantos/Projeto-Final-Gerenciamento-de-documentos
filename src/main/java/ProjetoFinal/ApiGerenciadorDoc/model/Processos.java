@@ -28,7 +28,6 @@ public class Processos {
 	private Usuario usuario;
 
 	
-	
 
 	public Documento getDocumentacao() {
 		return getDocumento();
