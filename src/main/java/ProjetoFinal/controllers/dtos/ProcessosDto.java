@@ -1,40 +1,42 @@
-package ProjetoFinal.ApiGerenciadorDoc.model;
+package ProjetoFinal.controllers.dtos;
 
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
-@Entity
-public class Processos {
+
+import ProjetoFinal.ApiGerenciadorDoc.model.Cliente;
+import ProjetoFinal.ApiGerenciadorDoc.model.Documento;
+import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
+import ProjetoFinal.ApiGerenciadorDoc.model.Status;
+import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
+
+public class ProcessosDto {
 	
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	@ManyToOne
 	private Cliente cliente;
 	private Status status;
 	private String descricao;
 	private String nome;
 	private Date data_criacao;
 	private int nro_processo;
-	@OneToOne
 	private Documento documento;
-	@ManyToOne
 	private Usuario usuario;
-
 	
-
-	public Documento getDocumentacao() {
-		return getDocumento();
+	
+	
+	public ProcessosDto (Processos processos) {
+		
+		this.id=processos.getId();
+		this.cliente=processos.getCliente();
+		this.status=processos.getStatus();
+		this.descricao=processos.getDescricao();
+		this.nome=processos.getNome();
+		this.data_criacao=processos.getData_criacao();
+		this.nro_processo=processos.getNro_processo();
+		this.documento=processos.getDocumento();
+		this.usuario=processos.getUsuario();
 	}
-	public void setDocumentacao(Documento documentacao) {
-		this.documento = documentacao;
-	}
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -77,14 +79,12 @@ public class Processos {
 	public void setNro_processo(int nro_processo) {
 		this.nro_processo = nro_processo;
 	}
-
 	public Documento getDocumento() {
 		return documento;
 	}
 	public void setDocumento(Documento documento) {
 		this.documento = documento;
 	}
-
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -92,8 +92,9 @@ public class Processos {
 		this.usuario = usuario;
 	}
 	
+
 	
 	
 	
-		
+	
 }

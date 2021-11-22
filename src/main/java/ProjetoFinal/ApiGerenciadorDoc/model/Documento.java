@@ -17,6 +17,9 @@ public class Documento {
 	private String pathArquivo;
 	private LocalDate dataUpload;
 	private Long usuarioProprietario;
+	private Usuario usuario;
+	private Processos processos;
+	
 
 	public Documento() {
 	}
@@ -81,5 +84,24 @@ public class Documento {
 	public void setUsuarioProprietario(Long usuarioProprietario) {
 		this.usuarioProprietario = usuarioProprietario;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Processos getProcessos() {
+		return processos;
+	}
+
+	public void setProcessos(Processos processos) {
+		this.processos = processos;
+	}
+
+	
+	
 	
 }
