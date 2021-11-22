@@ -1,4 +1,4 @@
-package ProjetoFinal.Repository;
+package ProjetoFinal.repositorios;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
