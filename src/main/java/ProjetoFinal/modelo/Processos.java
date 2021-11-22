@@ -5,21 +5,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Processos {
 	
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	@ManyToOne
 	private Cliente cliente;
 	private Status status;
 	private String descricao;
 	private String nome;
 	private Date data_criacao;
 	private int nro_processo;
+	@OneToOne
 	private Documentacao documentacao;
+	@ManyToOne
 	private Usuario usuario;
 	
 	
