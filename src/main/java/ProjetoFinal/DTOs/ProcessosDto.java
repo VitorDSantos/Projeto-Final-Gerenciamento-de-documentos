@@ -79,11 +79,11 @@ public class ProcessosDto {
 	public void setNro_processo(int nro_processo) {
 		this.nro_processo = nro_processo;
 	}
-	public Documento getDocumentacao() {
-		return documentacao;
+	public Documento getDocumento() {
+		return documento;
 	}
-	public void setDocumentacao(Documento documentacao) {
-		this.documentacao = documentacao;
+	public void setDocumento(Documento documento) {
+		this.documento = documento;
 	}
 	public Usuario getUsuario() {
 		return usuario;
