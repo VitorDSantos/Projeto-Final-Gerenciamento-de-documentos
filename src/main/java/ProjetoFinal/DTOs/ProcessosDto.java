@@ -18,7 +18,7 @@ public class ProcessosDto {
 	private String nome;
 	private Date data_criacao;
 	private int nro_processo;
-	private Documento documentacao;
+	private Documento documento;
 	private Usuario usuario;
 	
 	
@@ -32,7 +32,7 @@ public class ProcessosDto {
 		this.nome=processos.getNome();
 		this.data_criacao=processos.getData_criacao();
 		this.nro_processo=processos.getNro_processo();
-		this.documentacao=processos.getDocumentacao();
+		this.documento=processos.getDocumento();
 		this.usuario=processos.getUsuario();
 	}
 	

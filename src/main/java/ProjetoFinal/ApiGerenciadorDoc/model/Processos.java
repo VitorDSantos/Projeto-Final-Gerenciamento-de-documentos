@@ -33,10 +33,10 @@ public class Processos {
 	
 	
 	public Documento getDocumentacao() {
-		return documentacao;
+		return getDocumento();
 	}
 	public void setDocumentacao(Documento documentacao) {
-		this.documentacao = documentacao;
+		this.documento = documentacao;
 	}
 	public int getId() {
 		return id;
