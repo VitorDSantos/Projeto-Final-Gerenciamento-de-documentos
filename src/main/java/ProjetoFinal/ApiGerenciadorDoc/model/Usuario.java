@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
 @Entity
 public class Usuario {
 	@Id
@@ -18,9 +17,9 @@ public class Usuario {
 	private String login;
 	private int nro_processo;
 	private String senha;
-	@OneToMany
-	private Cliente cliente;
 	@ManyToOne
+	private Cliente cliente;
+	@OneToMany
 	private Processos processos;
 	
 	
