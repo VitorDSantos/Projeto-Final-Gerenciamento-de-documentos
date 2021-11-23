@@ -1,5 +1,8 @@
 package ProjetoFinal.controllers.dtos;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
 
 public class UsuarioDto {
@@ -67,5 +70,8 @@ public class UsuarioDto {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+	public static List<UsuarioDto> converter(List<Usuario> usuario) {
+		 
+		return usuario.stream().map(UsuarioDto::new).collect(Collectors.toList());
+	}
 }

@@ -17,6 +17,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 	Processos findById(int id);
 	
 	List<Processos>findByNumeroOAB(Integer NumeroOAB);
+	
+	List<Usuario>findByNome(String nome);
 
-	Usuario findByNome(@NotNull @NotEmpty String nome);
+	Usuario findByNomes(@NotNull @NotEmpty String nome);
 }
