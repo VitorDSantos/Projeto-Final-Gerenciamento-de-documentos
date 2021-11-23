@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
 import ProjetoFinal.controllers.dtos.ProcessosDto;
+import ProjetoFinal.controllers.service.ProcessosService;
 import ProjetoFinal.repositorios.ProcessosRepository;
 
 @RestController
@@ -18,10 +19,13 @@ public class ProcessosController {
 	
 	@Autowired
 	ProcessosRepository repositorioProcessos;
+	@Autowired
+	ProcessosService service;
+	
 	
 @GetMapping
-public List<ProcessosDto> list(Processos processos){
-	return null;
+public List<ProcessosDto> list(ProcessosService service){
+	return service.filtrandoNro(0);
 	
 }
 
