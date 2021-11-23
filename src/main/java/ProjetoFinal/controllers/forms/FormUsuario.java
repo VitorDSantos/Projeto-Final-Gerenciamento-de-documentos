@@ -24,7 +24,7 @@ public class FormUsuario {
 	private int numeroOAB;
 	
 	public Usuario converter(UsuarioRepository usuarioRepository) {
-		Usuario usuario = usuarioRepository.findByNome(nome);
+		Usuario usuario = usuarioRepository.findByNomes(nome);
 		return new Usuario(nome, login, senha, nroProcesso, numeroOAB);
 	}
 }
