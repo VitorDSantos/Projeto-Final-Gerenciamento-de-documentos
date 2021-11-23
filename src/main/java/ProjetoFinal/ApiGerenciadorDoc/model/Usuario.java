@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -22,6 +24,15 @@ public class Usuario {
 	private Cliente cliente;
 	@ManyToOne
 	private Processos processos;
+	
+	public Usuario(@NotNull @NotEmpty String nome, @NotNull @NotEmpty String login, @NotNull @NotEmpty String senha,
+			@NotNull @NotEmpty int nroProcesso, @NotNull @NotEmpty int numeroOAB) {
+		this.nome = nome;
+		this.login = login;
+		this.senha = senha;
+		this.nroProcesso = nroProcesso;
+		this.numeroOAB = numeroOAB;
+	}
 	
 	public Long getId() {
 		return id;
