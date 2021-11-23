@@ -28,13 +28,14 @@ public class Processos {
 	private Usuario usuario;
 
 	
-
-	public Documento getDocumentacao() {
-		return getDocumento();
+	public Processos () {
 	}
-	public void setDocumentacao(Documento documentacao) {
-		this.documento = documentacao;
+	
+	public Processos (int nro_processo) {
+		
 	}
+	
+	
 	public int getId() {
 		return id;
 	}

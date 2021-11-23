@@ -1,7 +1,8 @@
 package ProjetoFinal.controllers.dtos;
 
 import java.util.Date;
-
+import java.util.List;
+import java.util.stream.Collectors;
 
 import ProjetoFinal.ApiGerenciadorDoc.model.Cliente;
 import ProjetoFinal.ApiGerenciadorDoc.model.Documento;
@@ -90,6 +91,11 @@ public class ProcessosDto {
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+
+	public static List<ProcessosDto> converte(List<Processos> processos) {
+		return processos.stream().map(ProcessosDto::new).collect(Collectors.toList());
 	}
 	
 

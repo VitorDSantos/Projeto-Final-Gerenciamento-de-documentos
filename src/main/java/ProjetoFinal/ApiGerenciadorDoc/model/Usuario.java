@@ -9,7 +9,6 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-
 @Entity
 public class Usuario {
 	@Id
@@ -20,9 +19,9 @@ public class Usuario {
 	private String login;
 	private int nroProcesso;
 	private String senha;
-	@OneToMany
-	private Cliente cliente;
 	@ManyToOne
+	private Cliente cliente;
+	@OneToMany
 	private Processos processos;
 	
 	public Usuario(@NotNull @NotEmpty String nome, @NotNull @NotEmpty String login, @NotNull @NotEmpty String senha,
