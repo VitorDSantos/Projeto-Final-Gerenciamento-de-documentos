@@ -1,4 +1,4 @@
-package ProjetoFinal.controllers;
+package ProjetoFinal.controller;
 
 import java.util.List;
 
@@ -7,10 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
-import ProjetoFinal.controllers.dtos.ProcessosDto;
-import ProjetoFinal.controllers.service.ProcessosService;
-import ProjetoFinal.repositorios.ProcessosRepository;
+import ProjetoFinal.dto.ProcessosDto;
+import ProjetoFinal.repository.ProcessosRepository;
+import ProjetoFinal.service.ProcessosService;
 
 @RestController
 @RequestMapping
