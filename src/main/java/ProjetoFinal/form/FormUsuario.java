@@ -1,10 +1,14 @@
-package ProjetoFinal.controllers.forms;
+package ProjetoFinal.form;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import ProjetoFinal.model.Usuario;
+<<<<<<< HEAD:src/main/java/ProjetoFinal/controllers/forms/FormUsuario.java
 import ProjetoFinal.repositorios.UsuarioRepository;
+=======
+import ProjetoFinal.repository.UsuarioRepository;
+>>>>>>> fe9b752f630558ac4003b65f7659b913a1affa1e:src/main/java/ProjetoFinal/form/FormUsuario.java
 
 
 public class FormUsuario {
@@ -24,8 +28,8 @@ public class FormUsuario {
 	private int numeroOAB;
 	
 	public Usuario converter(UsuarioRepository usuarioRepository) {
-		Usuario usuario = usuarioRepository.findByNomes(nome);
-		return new Usuario(nome, login, senha, nroProcesso, numeroOAB);
+		//Usuario usuario = usuarioRepository.findByNomes(nome);
+		return new Usuario(nome, login, senha, numeroOAB);
 	}
 
 	public Usuario atualizar(Long id, UsuarioRepository usuarioRepository) {

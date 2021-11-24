@@ -1,13 +1,20 @@
-package ProjetoFinal.controllers.dtos;
+package ProjetoFinal.dto;
 
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+<<<<<<< HEAD:src/main/java/ProjetoFinal/controllers/dtos/ProcessosDto.java
 import ProjetoFinal.ApiGerenciadorDoc.model.Status;
 import ProjetoFinal.model.Cliente;
 import ProjetoFinal.model.Documento;
 import ProjetoFinal.model.Processos;
+=======
+import ProjetoFinal.model.Cliente;
+import ProjetoFinal.model.Documento;
+import ProjetoFinal.model.Processos;
+import ProjetoFinal.model.Status;
+>>>>>>> fe9b752f630558ac4003b65f7659b913a1affa1e:src/main/java/ProjetoFinal/dto/ProcessosDto.java
 import ProjetoFinal.model.Usuario;
 
 public class ProcessosDto {
@@ -32,7 +39,11 @@ public class ProcessosDto {
 		this.descricao=processos.getDescricao();
 		this.nome=processos.getNome();
 		this.data_criacao=processos.getDataCriacao();
+<<<<<<< HEAD:src/main/java/ProjetoFinal/controllers/dtos/ProcessosDto.java
 		this.nro_processo=processos.getNro_processo();
+=======
+		this.nro_processo=processos.getNroProcesso();
+>>>>>>> fe9b752f630558ac4003b65f7659b913a1affa1e:src/main/java/ProjetoFinal/dto/ProcessosDto.java
 		this.documento=processos.getDocumento();
 		this.usuario=processos.getUsuario();
 	}

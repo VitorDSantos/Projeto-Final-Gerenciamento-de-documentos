@@ -1,10 +1,13 @@
-package ProjetoFinal.controllers.dtos;
+package ProjetoFinal.dto;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import ProjetoFinal.model.Usuario;
+<<<<<<< HEAD:src/main/java/ProjetoFinal/controllers/dtos/UsuarioDto.java
 
+=======
+>>>>>>> fe9b752f630558ac4003b65f7659b913a1affa1e:src/main/java/ProjetoFinal/dto/UsuarioDto.java
 
 public class UsuarioDto {
 	private Long id;
@@ -20,7 +23,7 @@ public class UsuarioDto {
 		this.nome = usuario.getNome();
 		this.numeroOAB = usuario.getNumeroOAB();
 		this.login = usuario.getLogin();
-		this.nProcesso = usuario.getNroProcesso();
+		//this.nProcesso = usuario.getNroProcesso();
 		this.senha = usuario.getSenha();
 	}
 
