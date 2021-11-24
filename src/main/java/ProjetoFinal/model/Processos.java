@@ -1,4 +1,4 @@
-package ProjetoFinal.ApiGerenciadorDoc.model;
+package ProjetoFinal.model;
 
 import java.util.Date;
 import javax.persistence.Entity;
@@ -6,23 +6,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Processos {
 	
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	@ManyToOne
 	private Cliente cliente;
 	private Status status;
 	private String descricao;
 	private String nome;
-	private Date data_criacao;
-	private int nro_processo;
-	@OneToOne
+	private Date dataCriacao;
+	private int nroProcesso;
+	@ManyToOne
 	private Documento documento;
 	@ManyToOne
 	private Usuario usuario;
@@ -31,15 +29,15 @@ public class Processos {
 	public Processos () {
 	}
 	
-	public Processos (int nro_processo) {
+	public Processos (int nroProcesso) {
 		
 	}
 	
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Cliente getCliente() {
@@ -66,17 +64,17 @@ public class Processos {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getData_criacao() {
-		return data_criacao;
+	public Date getDataCriacao() {
+		return dataCriacao;
 	}
-	public void setData_criacao(Date data_criacao) {
-		this.data_criacao = data_criacao;
+	public void setDataCriacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
 	}
-	public int getNro_processo() {
-		return nro_processo;
+	public int getNroProcesso() {
+		return nroProcesso;
 	}
-	public void setNro_processo(int nro_processo) {
-		this.nro_processo = nro_processo;
+	public void setNroProcesso(int nroProcesso) {
+		this.nroProcesso = nroProcesso;
 	}
 
 	public Documento getDocumento() {
