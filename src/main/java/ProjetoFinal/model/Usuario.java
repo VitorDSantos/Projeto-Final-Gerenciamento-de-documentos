@@ -1,5 +1,7 @@
 package ProjetoFinal.model;
 
+import java.util.Map;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,29 +39,12 @@ public class Usuario {
 	}
 	
 
-
 	public Usuario(@NotNull @NotEmpty String nome2, @NotNull @NotEmpty String login2, @NotNull @NotEmpty String senha2,
 			@NotNull @NotEmpty int nroProcesso, @NotNull @NotEmpty int numeroOAB2) {
+	
 	}
 
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public Integer getNumeroOAB() {
-		return numeroOAB;
-	}
-	public void setNumeroOAB(Integer numeroOAB) {
-		this.numeroOAB = numeroOAB;
-	}
+
 	public String getLogin() {
 		return login;
 	}
@@ -72,5 +57,38 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+	public Integer getNumeroOAB() {
+		return numeroOAB;
+	}
+
+
+	public void setNumeroOAB(Integer numeroOAB) {
+		this.numeroOAB = numeroOAB;
+	}
+
+
 	
-}
+	}
+	

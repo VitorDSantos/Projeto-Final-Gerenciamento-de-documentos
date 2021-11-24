@@ -8,6 +8,7 @@ import ProjetoFinal.repository.UsuarioRepository;
 
 
 public class FormUsuario {
+	
 	@NotNull @NotEmpty
 	private String nome;
 	
@@ -30,4 +31,7 @@ public class FormUsuario {
 	public Usuario atualizar(Long id, UsuarioRepository usuarioRepository) {
 		return null;
 	}
-}
+
+
+	}
+

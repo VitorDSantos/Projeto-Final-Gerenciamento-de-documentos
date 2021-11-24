@@ -1,15 +1,7 @@
 package ProjetoFinal.dto;
 
-import java.time.LocalDate;
-import java.util.Date;
-
-import javax.persistence.OneToOne;
-
 import ProjetoFinal.model.Cliente;
 import ProjetoFinal.model.Documento;
-import ProjetoFinal.model.Processos;
-import ProjetoFinal.model.Status;
-import ProjetoFinal.model.Usuario;
 
 public class ClienteDto {
 	private int id;

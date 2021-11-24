@@ -69,5 +69,13 @@ public class Cliente {
 	public void setTelefone(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	public int getNro_processo() {
+		return 0;
+	}
+
+	public Documento getDocumento() {
+		return null;
+	}
 	
 }

@@ -7,6 +7,10 @@ import java.util.stream.Collectors;
 import ProjetoFinal.model.Cliente;
 import ProjetoFinal.model.Documento;
 import ProjetoFinal.model.Processos;
+
+import ProjetoFinal.model.Cliente;
+import ProjetoFinal.model.Documento;
+import ProjetoFinal.model.Processos;
 import ProjetoFinal.model.Status;
 import ProjetoFinal.model.Usuario;
 

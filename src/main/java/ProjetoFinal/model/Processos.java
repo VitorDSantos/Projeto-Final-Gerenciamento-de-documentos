@@ -1,6 +1,7 @@
 package ProjetoFinal.model;
 
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -97,6 +98,11 @@ public Processos (@NotNull @NotEmpty @Length(min = 2) int nro_processo2, Status 
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public int getNro_processo() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	
