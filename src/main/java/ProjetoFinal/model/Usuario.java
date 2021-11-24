@@ -1,11 +1,9 @@
-package ProjetoFinal.ApiGerenciadorDoc.model;
+package ProjetoFinal.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -17,19 +15,24 @@ public class Usuario {
 	private String nome;
 	private Integer numeroOAB;
 	private String login;
-	private int nroProcesso;
 	private String senha;
-	@ManyToOne
-	private Cliente cliente;
-	@OneToMany
-	private Processos processos;
+	//@ManyToOne
+	//private Cliente cliente;
+	//@OneToMany
+	//private Processos processos;
 	
-	public Usuario(@NotNull @NotEmpty String nome, @NotNull @NotEmpty String login, @NotNull @NotEmpty String senha,
-			@NotNull @NotEmpty int nroProcesso, @NotNull @NotEmpty int numeroOAB) {
+	public Usuario(
+			@NotNull @NotEmpty 
+			String nome, 
+			@NotNull @NotEmpty 
+			String login, 
+			@NotNull @NotEmpty 
+			String senha,
+			@NotNull @NotEmpty 
+			int numeroOAB) {
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
-		this.nroProcesso = nroProcesso;
 		this.numeroOAB = numeroOAB;
 	}
 	
@@ -63,11 +66,5 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public int getNroProcesso() {
-		return nroProcesso;
-	}
-	public void setNroProcesso(int nro_processo) {
-		this.nroProcesso = nro_processo;
-	}
-
+	
 }
