@@ -49,7 +49,6 @@ public class UsuarioController {
 			return UsuarioDto.converter(usuario);
 		}else {
 			List<Usuario> usuario = usuarioRepository.findByNome(nome);
-		
 			return UsuarioDto.converter(usuario);
 		}
 	}

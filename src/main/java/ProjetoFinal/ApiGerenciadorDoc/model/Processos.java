@@ -2,11 +2,17 @@ package ProjetoFinal.ApiGerenciadorDoc.model;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Processos {
@@ -17,6 +23,7 @@ public class Processos {
 	private int id;
 	@ManyToOne
 	private Cliente cliente;
+	@Enumerated(EnumType.STRING)
 	private Status status;
 	private String descricao;
 	private String nome;
@@ -26,15 +33,14 @@ public class Processos {
 	private Documento documento;
 	@ManyToOne
 	private Usuario usuario;
-
-	
-	public Processos () {
-	}
 	
 	public Processos (int nro_processo) {
 		
 	}
 	
+public Processos (@NotNull @NotEmpty @Length(min = 2) int nro_processo2, Status status2, @NotNull @NotEmpty Cliente cliente2, @NotNull @NotEmpty Documento documento2, @NotNull @NotEmpty Usuario usuario2, @NotNull @NotEmpty Date data_criacao2) {
+		
+	}
 	
 	public int getId() {
 		return id;
