@@ -1,51 +1,47 @@
-package ProjetoFinal.ApiGerenciadorDoc.model;
+package ProjetoFinal.dto;
 
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import org.hibernate.validator.constraints.Length;
+import ProjetoFinal.model.Cliente;
+import ProjetoFinal.model.Documento;
+import ProjetoFinal.model.Processos;
+import ProjetoFinal.model.Status;
+import ProjetoFinal.model.Usuario;
 
-@Entity
-public class Processos {
+public class ProcessosDto {
 	
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	@ManyToOne
+	private Long id;
 	private Cliente cliente;
-	@Enumerated(EnumType.STRING)
 	private Status status;
 	private String descricao;
 	private String nome;
 	private Date data_criacao;
 	private int nro_processo;
-	@OneToOne
 	private Documento documento;
-	@ManyToOne
 	private Usuario usuario;
 	
-	public Processos (int nro_processo) {
+	
+	
+	public ProcessosDto (Processos processos) {
 		
+		this.id=processos.getId();
+		this.cliente=processos.getCliente();
+		this.status=processos.getStatus();
+		this.descricao=processos.getDescricao();
+		this.nome=processos.getNome();
+		this.data_criacao=processos.getDataCriacao();
+		this.nro_processo=processos.getNroProcesso();
+		this.documento=processos.getDocumento();
+		this.usuario=processos.getUsuario();
 	}
 	
-public Processos (@NotNull @NotEmpty @Length(min = 2) int nro_processo2, Status status2, @NotNull @NotEmpty Cliente cliente2, @NotNull @NotEmpty Documento documento2, @NotNull @NotEmpty Usuario usuario2, @NotNull @NotEmpty Date data_criacao2) {
-		
-	}
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Cliente getCliente() {
@@ -84,23 +80,27 @@ public Processos (@NotNull @NotEmpty @Length(min = 2) int nro_processo2, Status 
 	public void setNro_processo(int nro_processo) {
 		this.nro_processo = nro_processo;
 	}
-
 	public Documento getDocumento() {
 		return documento;
 	}
 	public void setDocumento(Documento documento) {
 		this.documento = documento;
 	}
-
 	public Usuario getUsuario() {
 		return usuario;
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+
+	public static List<ProcessosDto> converte(List<Processos> processos) {
+		return processos.stream().map(ProcessosDto::new).collect(Collectors.toList());
+	}
+	
+
 	
 	
 	
 	
-		
 }

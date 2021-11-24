@@ -1,15 +1,15 @@
-package ProjetoFinal.controllers.dtos;
+package ProjetoFinal.dto;
 
 import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.OneToOne;
 
-import ProjetoFinal.ApiGerenciadorDoc.model.Cliente;
-import ProjetoFinal.ApiGerenciadorDoc.model.Documento;
-import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
-import ProjetoFinal.ApiGerenciadorDoc.model.Status;
-import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
+import ProjetoFinal.model.Cliente;
+import ProjetoFinal.model.Documento;
+import ProjetoFinal.model.Processos;
+import ProjetoFinal.model.Status;
+import ProjetoFinal.model.Usuario;
 
 public class ClienteDto {
 	private int id;
@@ -26,8 +26,8 @@ public class ClienteDto {
 		this.nome= cliente.getNome();
 		this.email= cliente.getEmail();
 		this.telefone= cliente.getTelefone();
-		this.nro_processo= cliente.getNro_processo();
-		this.documento= cliente.getDocumento();
+		//this.nro_processo= cliente.getNroProcesso();
+		//this.documento= cliente.getDocumento();
 	}
 
 
@@ -81,14 +81,14 @@ public class ClienteDto {
 	}
 
 
-	public Documento getDocumento() {
-		return documento;
-	}
+	//public Documento getDocumento() {
+	//	return documento;
+	//}
 
 
-	public void setDocumento(Documento documento) {
-		this.documento = documento;
-	}
+	//public void setDocumento(Documento documento) {
+	//	this.documento = documento;
+	//}
 	
 	
 	

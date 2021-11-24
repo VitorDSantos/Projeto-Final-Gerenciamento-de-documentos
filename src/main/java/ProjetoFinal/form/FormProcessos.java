@@ -1,4 +1,4 @@
-package ProjetoFinal.controllers.forms;
+package ProjetoFinal.form;
 
 import java.util.Date;
 
@@ -9,17 +9,18 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
-import ProjetoFinal.ApiGerenciadorDoc.model.Cliente;
-import ProjetoFinal.ApiGerenciadorDoc.model.Documento;
-import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
-import ProjetoFinal.ApiGerenciadorDoc.model.Status;
-import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
-import ProjetoFinal.repositorios.ProcessosRepository;
+import ProjetoFinal.model.Documento;
+import ProjetoFinal.model.Processos;
+import ProjetoFinal.model.Status;
+import ProjetoFinal.model.Usuario;
+import ProjetoFinal.repository.ProcessosRepository;
+
+
 
 public class FormProcessos {
 	
 	@NotNull @NotEmpty
-	private Cliente cliente;
+	private ProjetoFinal.model.Cliente cliente;
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;
@@ -37,13 +38,13 @@ public class FormProcessos {
 	private Usuario usuario;
 	
 	public Processos converte(ProcessosRepository processosRepository) {
-		Processos processos = (Processos) processosRepository.findByNroProcessos(nro_processo);
+		Processos processos = (Processos) processosRepository.findByNroProcesso(nro_processo);
 		return new Processos (nro_processo, status, cliente, documento, usuario, data_criacao);
 	}
 	public Processos atualiza(int id, int nro_processos, ProcessosRepository processosRepository) {
 		Processos processos = processosRepository.getOne(id);
 		processos.setCliente(this.cliente);
-		processos.setData_criacao(this.data_criacao);
+		processos.setDataCriacao(this.data_criacao);
 		processos.setDescricao(this.descricao);
 		processos.setDocumento(this.documento);
 		processos.setNome(this.nome);

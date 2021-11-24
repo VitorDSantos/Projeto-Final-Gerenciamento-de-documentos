@@ -1,10 +1,10 @@
-package ProjetoFinal.controllers.forms;
+package ProjetoFinal.form;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
-import ProjetoFinal.repositorios.UsuarioRepository;
+import ProjetoFinal.model.Usuario;
+import ProjetoFinal.repository.UsuarioRepository;
 
 
 public class FormUsuario {
@@ -26,5 +26,8 @@ public class FormUsuario {
 	public Usuario converter(UsuarioRepository usuarioRepository) {
 		Usuario usuario = (Usuario) usuarioRepository.findByNome(nome);
 		return new Usuario(nome, login, senha, nroProcesso, numeroOAB);
+	}
+	public Usuario atualizar(Long id, UsuarioRepository usuarioRepository) {
+		return null;
 	}
 }

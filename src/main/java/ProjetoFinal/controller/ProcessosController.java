@@ -1,4 +1,4 @@
-package ProjetoFinal.controllers;
+package ProjetoFinal.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -17,12 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
-import ProjetoFinal.ApiGerenciadorDoc.model.Status;
-import ProjetoFinal.controllers.dtos.ProcessosDto;
-import ProjetoFinal.controllers.forms.FormProcessos;
-import ProjetoFinal.controllers.service.ProcessosService;
-import ProjetoFinal.repositorios.ProcessosRepository;
+import ProjetoFinal.dto.ProcessosDto;
+import ProjetoFinal.form.FormProcessos;
+import ProjetoFinal.model.Processos;
+import ProjetoFinal.repository.ProcessosRepository;
+import ProjetoFinal.service.ProcessosService;
+
+
+
+
 
 @RestController
 @RequestMapping("/processos")
@@ -31,6 +34,7 @@ public class ProcessosController {
 	
 	@Autowired
 	ProcessosRepository processosRepository;
+	
 	@Autowired
 	ProcessosService service;
 	@Autowired
@@ -38,8 +42,8 @@ public class ProcessosController {
 	
 	@GetMapping
 		public List<ProcessosDto> filtrando(int nro_processos, ProcessosService service) { //depois adicionar por status
-			int x = processos.getNro_processo();
-			List<Processos> processos = processosRepository.findByNroProcessos(x);
+			int x = processos.getNroProcesso();
+			List<Processos> processos = processosRepository.findByNroProcesso(x);
 			return ProcessosDto.converte(processos);
 			}
 		
@@ -47,7 +51,7 @@ public class ProcessosController {
 	public ResponseEntity<ProcessosDto> inserir(@RequestBody @Valid FormProcessos form, UriComponentsBuilder uriBuild){
 		Processos processos=form.converte(processosRepository);
 		processosRepository.save(processos);
-		URI uri= uriBuild.path("/processos{id}").buildAndExpand(processos.getNro_processo()).toUri();
+		URI uri= uriBuild.path("/processos{id}").buildAndExpand(processos.getNroProcesso()).toUri();
 		return ResponseEntity.created(uri).body(new ProcessosDto(processos));
 	}
 	
@@ -64,7 +68,7 @@ public class ProcessosController {
 	@DeleteMapping ("/{id}")
 	public ResponseEntity<ProcessosDto> remove(@PathVariable int id, int nro_processos){
 		processosRepository.deleteById(id);
-		int nro_processo= processos.getNro_processo();
+		int nro_processo= processos.getNroProcesso();
 		processosRepository.deleteByNroProcesso(nro_processo);
 		return ResponseEntity.ok().build();
 	}

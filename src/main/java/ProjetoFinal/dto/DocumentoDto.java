@@ -1,14 +1,10 @@
-package ProjetoFinal.controllers.dtos;
+package ProjetoFinal.dto;
 
 import java.time.LocalDate;
-import java.util.Date;
 
-
-import ProjetoFinal.ApiGerenciadorDoc.model.Cliente;
-import ProjetoFinal.ApiGerenciadorDoc.model.Documento;
-import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
-import ProjetoFinal.ApiGerenciadorDoc.model.Status;
-import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
+import ProjetoFinal.model.Documento;
+import ProjetoFinal.model.Processos;
+import ProjetoFinal.model.Usuario;
 
 public class DocumentoDto {
 	
@@ -32,7 +28,7 @@ public class DocumentoDto {
 		this.usuario=documento.getUsuario();
 		this.dataUpload=documento.getDataUpload();
 		this.usuarioProprietario=documento.getUsuarioProprietario();
-		this.processos=documento.getProcessos();
+		//this.processos=documento.getProcessos();
 	}
 
 
@@ -121,14 +117,14 @@ public class DocumentoDto {
 
 
 
-	public Processos getProcessos() {
-		return processos;
-	}
+	//public Processos getProcessos() {
+	//	return processos;
+	//}
 
 
 
-	public void setProcessos(Processos processos) {
-		this.processos = processos;
-	}
+	//public void setProcessos(Processos processos) {
+	//	this.processos = processos;
+	//}
 	
 }

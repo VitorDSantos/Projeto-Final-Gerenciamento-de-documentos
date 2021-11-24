@@ -1,9 +1,9 @@
-package ProjetoFinal.controllers.dtos;
+package ProjetoFinal.dto;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
+import ProjetoFinal.model.Usuario;
 
 public class UsuarioDto {
 	private Long id;
@@ -19,7 +19,7 @@ public class UsuarioDto {
 		this.nome = usuario.getNome();
 		this.numeroOAB = usuario.getNumeroOAB();
 		this.login = usuario.getLogin();
-		this.nProcesso = usuario.getNroProcesso();
+		//this.nProcesso = usuario.getNroProcesso();
 		this.senha = usuario.getSenha();
 	}
 

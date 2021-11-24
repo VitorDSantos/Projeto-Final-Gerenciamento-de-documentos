@@ -1,4 +1,4 @@
-package ProjetoFinal.repositorios;
+package ProjetoFinal.repository;
 
 import java.util.List;
 
@@ -7,18 +7,18 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
-import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
+import ProjetoFinal.model.Processos;
+import ProjetoFinal.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 
-	List<Processos>findByNroProcessos(int nro_processo);
+	//List<Processos>findByNroProcesso(int nroProcesso);
 	
 	Processos findById(int id);
 	
-	List<Processos>findByNumeroOAB(Integer NumeroOAB);
+	List<Processos>findByNumeroOAB(Integer numeroOAB);
 	
 	List<Usuario>findByNome(String nome);
 
-	Usuario findByNomes(@NotNull @NotEmpty String nome);
+	//Usuario findByNomes(@NotNull @NotEmpty String nome);
 }
