@@ -36,6 +36,12 @@ public class Usuario {
 		this.numeroOAB = numeroOAB;
 	}
 	
+
+
+	public Usuario(@NotNull @NotEmpty String nome2, @NotNull @NotEmpty String login2, @NotNull @NotEmpty String senha2,
+			@NotNull @NotEmpty int nroProcesso, @NotNull @NotEmpty int numeroOAB2) {
+	}
+
 	public Long getId() {
 		return id;
 	}
