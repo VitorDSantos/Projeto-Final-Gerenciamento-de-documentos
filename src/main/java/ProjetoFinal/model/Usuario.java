@@ -36,6 +36,11 @@ public class Usuario {
 		this.numeroOAB = numeroOAB;
 	}
 	
+	public Usuario(@NotNull @NotEmpty String nome, @NotNull @NotEmpty String login, @NotNull @NotEmpty String senha,
+			@NotNull @NotEmpty int nroProcesso, @NotNull @NotEmpty int numeroOAB) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -66,5 +71,12 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public int getNroProcesso() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
 	
 }

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
 import ProjetoFinal.controllers.dtos.ProcessosDto;
 import ProjetoFinal.controllers.service.ProcessosService;
 import ProjetoFinal.repositorios.ProcessosRepository;

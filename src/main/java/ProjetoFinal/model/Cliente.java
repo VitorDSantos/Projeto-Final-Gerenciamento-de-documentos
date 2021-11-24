@@ -69,5 +69,15 @@ public class Cliente {
 	public void setTelefone(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	public int getNro_processo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public Documento getDocumento() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

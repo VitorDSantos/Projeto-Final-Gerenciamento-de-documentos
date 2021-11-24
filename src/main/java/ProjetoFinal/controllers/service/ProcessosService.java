@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
 import ProjetoFinal.controllers.dtos.ProcessosDto;
+import ProjetoFinal.model.Processos;
 import ProjetoFinal.repositorios.ProcessosRepository;
 
 public class ProcessosService {

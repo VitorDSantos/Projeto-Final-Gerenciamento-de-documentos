@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import ProjetoFinal.ApiGerenciadorDoc.model.Status;
 
 @Entity
 public class Processos {
@@ -89,6 +90,11 @@ public class Processos {
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public int getNro_processo() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	

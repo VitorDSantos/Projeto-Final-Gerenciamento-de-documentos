@@ -4,15 +4,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import ProjetoFinal.ApiGerenciadorDoc.model.Cliente;
-import ProjetoFinal.ApiGerenciadorDoc.model.Documento;
-import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
 import ProjetoFinal.ApiGerenciadorDoc.model.Status;
-import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
+import ProjetoFinal.model.Cliente;
+import ProjetoFinal.model.Documento;
+import ProjetoFinal.model.Processos;
+import ProjetoFinal.model.Usuario;
 
 public class ProcessosDto {
 	
-	private int id;
+	private Long id;
 	private Cliente cliente;
 	private Status status;
 	private String descricao;
@@ -31,17 +31,17 @@ public class ProcessosDto {
 		this.status=processos.getStatus();
 		this.descricao=processos.getDescricao();
 		this.nome=processos.getNome();
-		this.data_criacao=processos.getData_criacao();
+		this.data_criacao=processos.getDataCriacao();
 		this.nro_processo=processos.getNro_processo();
 		this.documento=processos.getDocumento();
 		this.usuario=processos.getUsuario();
 	}
 	
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Cliente getCliente() {

@@ -1,15 +1,7 @@
 package ProjetoFinal.controllers.dtos;
 
-import java.time.LocalDate;
-import java.util.Date;
-
-import javax.persistence.OneToOne;
-
-import ProjetoFinal.ApiGerenciadorDoc.model.Cliente;
-import ProjetoFinal.ApiGerenciadorDoc.model.Documento;
-import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
-import ProjetoFinal.ApiGerenciadorDoc.model.Status;
-import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
+import ProjetoFinal.model.Cliente;
+import ProjetoFinal.model.Documento;
 
 public class ClienteDto {
 	private int id;
