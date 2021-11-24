@@ -1,4 +1,4 @@
-package ProjetoFinal.controllers;
+package ProjetoFinal.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
-import ProjetoFinal.controllers.dtos.UsuarioDto;
-import ProjetoFinal.controllers.forms.FormUsuario;
-import ProjetoFinal.repositorios.UsuarioRepository;
+import ProjetoFinal.dto.UsuarioDto;
+import ProjetoFinal.form.FormUsuario;
+import ProjetoFinal.model.Usuario;
+import ProjetoFinal.repository.UsuarioRepository;
 
 @RestController
 @RequestMapping("/usuario")
