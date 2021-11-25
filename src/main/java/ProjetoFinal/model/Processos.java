@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -29,17 +28,17 @@ public class Processos {
 	private String descricao;
 	private String nome;
 	private Date dataCriacao;
-	private int nroProcesso;
+	private int numeroprocesso;
 	@ManyToOne
 	private Documento documento;
 	@ManyToOne
 	private Usuario usuario;
 	
-	public Processos (int nroProcesso) {
+	public Processos (int numeroprocesso) {
 		
 	}
 	
-public Processos (@NotNull @NotEmpty @Length(min = 2) int nro_processo2, Status status2, @NotNull @NotEmpty Cliente cliente2, @NotNull @NotEmpty Documento documento2, @NotNull @NotEmpty Usuario usuario2, @NotNull @NotEmpty Date data_criacao2) {
+public Processos (@NotNull @NotEmpty @Length(min = 2) int numeroprocesso2, Status status2, @NotNull @NotEmpty Cliente cliente2, @NotNull @NotEmpty Documento documento2, @NotNull @NotEmpty Usuario usuario2, @NotNull @NotEmpty Date dataCriacao2) {
 		
 	}
 	
@@ -80,10 +79,10 @@ public Processos (@NotNull @NotEmpty @Length(min = 2) int nro_processo2, Status 
 		this.dataCriacao = dataCriacao;
 	}
 	public int getNroProcesso() {
-		return nroProcesso;
+		return numeroprocesso;
 	}
-	public void setNroProcesso(int nroProcesso) {
-		this.nroProcesso = nroProcesso;
+	public void setNroProcesso(int numeroprocesso) {
+		this.numeroprocesso = numeroprocesso;
 	}
 
 	public Documento getDocumento() {
@@ -99,14 +98,5 @@ public Processos (@NotNull @NotEmpty @Length(min = 2) int nro_processo2, Status 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
-	public int getNro_processo() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	
-	
-	
 		
 }
