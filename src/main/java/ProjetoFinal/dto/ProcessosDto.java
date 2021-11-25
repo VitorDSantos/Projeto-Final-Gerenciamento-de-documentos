@@ -4,9 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import ProjetoFinal.model.Cliente;
-import ProjetoFinal.model.Documento;
-import ProjetoFinal.model.Processos;
+import org.springframework.data.domain.Page;
 
 import ProjetoFinal.model.Cliente;
 import ProjetoFinal.model.Documento;
@@ -21,8 +19,8 @@ public class ProcessosDto {
 	private Status status;
 	private String descricao;
 	private String nome;
-	private Date data_criacao;
-	private int nro_processo;
+	private Date dataCriacao;
+	private int numeroprocesso;
 	private Documento documento;
 	private Usuario usuario;
 	
@@ -35,8 +33,8 @@ public class ProcessosDto {
 		this.status=processos.getStatus();
 		this.descricao=processos.getDescricao();
 		this.nome=processos.getNome();
-		this.data_criacao=processos.getDataCriacao();
-		this.nro_processo=processos.getNroProcesso();
+		this.dataCriacao =processos.getDataCriacao();
+		this.numeroprocesso =processos.getNroProcesso();
 		this.documento=processos.getDocumento();
 		this.usuario=processos.getUsuario();
 	}
@@ -73,16 +71,16 @@ public class ProcessosDto {
 		this.nome = nome;
 	}
 	public Date getData_criacao() {
-		return data_criacao;
+		return dataCriacao;
 	}
 	public void setData_criacao(Date data_criacao) {
-		this.data_criacao = data_criacao;
+		this.dataCriacao = data_criacao;
 	}
 	public int getNro_processo() {
-		return nro_processo;
+		return numeroprocesso;
 	}
 	public void setNro_processo(int nro_processo) {
-		this.nro_processo = nro_processo;
+		this.numeroprocesso = nro_processo;
 	}
 	public Documento getDocumento() {
 		return documento;
@@ -98,7 +96,7 @@ public class ProcessosDto {
 	}
 
 
-	public static List<ProcessosDto> converte(List<Processos> processos) {
+	public static List<ProcessosDto> converte(Page<Processos> processos) {
 		return processos.stream().map(ProcessosDto::new).collect(Collectors.toList());
 	}
 	

@@ -3,16 +3,13 @@ package ProjetoFinal.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
-
-
 
 import ProjetoFinal.dto.ProcessosDto;
 import ProjetoFinal.model.Processos;
 import ProjetoFinal.model.Status;
 import ProjetoFinal.repository.ProcessosRepository;
-
-
 
 @Service
 public class ProcessosService {
@@ -24,18 +21,20 @@ public class ProcessosService {
 		@Autowired
 		private ProcessosRepository processosRepository;
 		
-		int nro_processos = processos.getNroProcesso();		
-		public List<ProcessosDto> filtrandoStatus(Status status) {
-			if(status ==null) {
-				List<Processos> processos = processosRepository.findAll();
-				return ProcessosDto.converte(processos);
-			} else {
-			List<Processos> processos = processosRepository.findByStatus(status);
-			return ProcessosDto.converte(processos);}
-			}
+		int numeroprocesso = processos.getNroProcesso();
+		
+//		public List<ProcessosDto> filtrandoStatus(Status status) {
+//			
+//			if(status ==null) {
+//				Page<Processos> processos = (Page<Processos>) processosRepository.findAll();
+//				return ProcessosDto.converte(processos);
+//			} else {
+//			List<Processos> processos = processosRepository.findByStatus(status);
+//			return ProcessosDto.converte(processos);}
+//			}
 			
-		public List<ProcessosDto> filtrandoNro(int nro_processos) {
-			List<Processos> processos = processosRepository.findByNroProcesso(nro_processos);
+		public List<ProcessosDto> filtrandoNro(int numeroprocesso) {
+			Page<Processos> processos = processosRepository.findByNroProcesso(numeroprocesso, null);
 			return ProcessosDto.converte(processos);
 		}
 		
