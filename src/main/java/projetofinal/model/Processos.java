@@ -36,10 +36,19 @@ public class Processos {
 
 	}
 
-	public Processos(@NotNull @NotEmpty @Length(min = 2) int numeroprocesso2, Status status2,
-			@NotNull @NotEmpty Cliente cliente2, @NotNull @NotEmpty Documento documento2,
-			@NotNull @NotEmpty Usuario usuario2, @NotNull @NotEmpty Date dataCriacao2) {
+	public Processos(
+			@NotNull @NotEmpty @Length(min = 2) int nroProcesso, 
+			Status status2,
+			@NotNull @NotEmpty Cliente cliente,
+			@NotNull @NotEmpty Documento documento,
+			@NotNull @NotEmpty Usuario usuario, 
+			@NotNull @NotEmpty Date dataCriacao) {
 
+		this.nroProcesso = nroProcesso;
+		this.cliente = cliente;
+		this.documento = documento;
+		this.usuario = usuario;
+		
 	}
 
 	public Long getId() {
