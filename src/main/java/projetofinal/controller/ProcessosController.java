@@ -35,23 +35,23 @@ import projetofinal.service.ProcessosService;
 @RequestMapping("/processos")
 public class ProcessosController {
 
+	@Autowired
+	private ProcessosRepository processosRepository;
+ 
+	@Enumerated(EnumType.STRING)
+	private Status status;
 	
 	@Autowired
-	ProcessosRepository processosRepository;
-	//@Autowired 
-	@Enumerated(EnumType.STRING)
-	Status status;
-	@Autowired
-	ProcessosService service;
-	@Autowired
-	Processos processos;
+	private ProcessosService service;
+	
+	private Processos processos;
 	
 	@GetMapping
 		public List<ProcessosDto> filtrando(@RequestParam int numeroprocesso,
 				@RequestParam(required=false)int pag, int quantidade ) { //depois adicionar por status
 			Pageable paginacao= PageRequest.of(pag, quantidade);
-			Page<Processos> processos = processosRepository.findByNroProcesso(numeroprocesso, paginacao);
-			return ProcessosDto.converte(processos);
+			Page<Processos> processosPage = processosRepository.findByNroProcesso(numeroprocesso, paginacao);
+			return ProcessosDto.converte(processosPage);
 	}
 		
 		
