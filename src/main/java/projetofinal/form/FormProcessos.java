@@ -1,4 +1,4 @@
-package ProjetoFinal.form;
+package projetofinal.form;
 
 import java.util.Date;
 
@@ -9,11 +9,11 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
-import ProjetoFinal.model.Documento;
-import ProjetoFinal.model.Processos;
-import ProjetoFinal.model.Status;
-import ProjetoFinal.model.Usuario;
-import ProjetoFinal.repository.ProcessosRepository;
+import projetofinal.model.Documento;
+import projetofinal.model.Processos;
+import projetofinal.model.Status;
+import projetofinal.model.Usuario;
+import projetofinal.repository.ProcessosRepository;
 
 
 
@@ -21,7 +21,7 @@ public class FormProcessos {
 
 	private int id;
 	@NotNull @NotEmpty
-	private ProjetoFinal.model.Cliente cliente;
+	private projetofinal.model.Cliente cliente;
 	@Enumerated(EnumType.STRING)
 	private Status status;
 	@NotNull @NotEmpty 

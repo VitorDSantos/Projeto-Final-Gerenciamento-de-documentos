@@ -1,4 +1,4 @@
-package ProjetoFinal.service;
+package projetofinal.service;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import ProjetoFinal.dto.ProcessosDto;
-import ProjetoFinal.model.Processos;
-import ProjetoFinal.model.Status;
-import ProjetoFinal.repository.ProcessosRepository;
+import projetofinal.dto.ProcessosDto;
+import projetofinal.model.Processos;
+import projetofinal.model.Status;
+import projetofinal.repository.ProcessosRepository;
 
 @Service
 public class ProcessosService {
@@ -21,7 +21,7 @@ public class ProcessosService {
 		@Autowired
 		private ProcessosRepository processosRepository;
 		
-		int numeroprocesso = processos.getNroProcesso();
+		//int numeroprocesso = processos.getNroProcesso();
 		
 //		public List<ProcessosDto> filtrandoStatus(Status status) {
 //			
@@ -33,9 +33,9 @@ public class ProcessosService {
 //			return ProcessosDto.converte(processos);}
 //			}
 			
-		public List<ProcessosDto> filtrandoNro(int numeroprocesso) {
-			Page<Processos> processos = processosRepository.findByNroProcesso(numeroprocesso, null);
-			return ProcessosDto.converte(processos);
+		public List<ProcessosDto> filtrandoNro(int numeroProcesso) {
+			Page<Processos> processosPage = processosRepository.findByNroProcesso(numeroProcesso, null);
+			return ProcessosDto.converte(processosPage);
 		}
 		
-		}
+}

@@ -1,10 +1,10 @@
-package ProjetoFinal.form;
+package projetofinal.form;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import ProjetoFinal.model.Usuario;
-import ProjetoFinal.repository.UsuarioRepository;
+import projetofinal.model.Usuario;
+import projetofinal.repository.UsuarioRepository;
 
 
 public class FormUsuario {

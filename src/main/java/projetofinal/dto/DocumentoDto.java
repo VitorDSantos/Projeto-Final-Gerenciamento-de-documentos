@@ -1,10 +1,10 @@
-package ProjetoFinal.dto;
+package projetofinal.dto;
 
 import java.time.LocalDate;
 
-import ProjetoFinal.model.Documento;
-import ProjetoFinal.model.Processos;
-import ProjetoFinal.model.Usuario;
+import projetofinal.model.Documento;
+import projetofinal.model.Processos;
+import projetofinal.model.Usuario;
 
 public class DocumentoDto {
 	

@@ -1,7 +1,7 @@
-package ProjetoFinal.dto;
+package projetofinal.dto;
 
-import ProjetoFinal.model.Cliente;
-import ProjetoFinal.model.Documento;
+import projetofinal.model.Cliente;
+import projetofinal.model.Documento;
 
 public class ClienteDto {
 	private int id;

@@ -1,4 +1,4 @@
-package ProjetoFinal.dto;
+package projetofinal.dto;
 
 import java.util.Date;
 import java.util.List;
@@ -6,11 +6,11 @@ import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
 
-import ProjetoFinal.model.Cliente;
-import ProjetoFinal.model.Documento;
-import ProjetoFinal.model.Processos;
-import ProjetoFinal.model.Status;
-import ProjetoFinal.model.Usuario;
+import projetofinal.model.Cliente;
+import projetofinal.model.Documento;
+import projetofinal.model.Processos;
+import projetofinal.model.Status;
+import projetofinal.model.Usuario;
 
 public class ProcessosDto {
 	

@@ -1,4 +1,4 @@
-package ProjetoFinal.model;
+package projetofinal.model;
 
 import java.util.Map;
 

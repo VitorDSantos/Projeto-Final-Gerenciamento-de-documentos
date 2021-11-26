@@ -1,4 +1,4 @@
-package ProjetoFinal.controller;
+package projetofinal.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

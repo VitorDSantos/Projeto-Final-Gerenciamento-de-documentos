@@ -1,11 +1,11 @@
-package ProjetoFinal.repository;
+package projetofinal.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ProjetoFinal.model.Processos;
-import ProjetoFinal.model.Status;
+import projetofinal.model.Processos;
+import projetofinal.model.Status;
 
 
 public interface ProcessosRepository extends JpaRepository <Processos,Integer>{

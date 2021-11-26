@@ -1,4 +1,4 @@
-package ProjetoFinal.repository;
+package projetofinal.repository;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ProjetoFinal.model.Processos;
-import ProjetoFinal.model.Usuario;
+import projetofinal.model.Processos;
+import projetofinal.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 

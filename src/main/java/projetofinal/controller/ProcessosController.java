@@ -1,4 +1,4 @@
-package ProjetoFinal.controller;
+package projetofinal.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -23,12 +23,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import ProjetoFinal.dto.ProcessosDto;
-import ProjetoFinal.form.FormProcessos;
-import ProjetoFinal.model.Processos;
-import ProjetoFinal.model.Status;
-import ProjetoFinal.repository.ProcessosRepository;
-import ProjetoFinal.service.ProcessosService;
+import projetofinal.dto.ProcessosDto;
+import projetofinal.form.FormProcessos;
+import projetofinal.model.Processos;
+import projetofinal.model.Status;
+import projetofinal.repository.ProcessosRepository;
+import projetofinal.service.ProcessosService;
 
 
 @RestController
@@ -38,7 +38,7 @@ public class ProcessosController {
 	
 	@Autowired
 	ProcessosRepository processosRepository;
-	@Autowired 
+	//@Autowired 
 	@Enumerated(EnumType.STRING)
 	Status status;
 	@Autowired

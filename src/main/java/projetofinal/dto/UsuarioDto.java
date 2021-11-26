@@ -1,8 +1,12 @@
-package ProjetoFinal.dto;
+package projetofinal.dto;
 
-import ProjetoFinal.model.Usuario;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class DetalharUsuarioDto {
+import projetofinal.model.Usuario;
+
+
+public class UsuarioDto {
 	private Long id;
 	private String nome;
 	private Integer numeroOAB;
@@ -10,13 +14,13 @@ public class DetalharUsuarioDto {
 	private int nProcesso;
 	private String senha;
 	
-	public DetalharUsuarioDto (Usuario usuario) {
+	public UsuarioDto (Usuario usuario) {
 		
 		this.id=usuario.getId();
 		this.nome = usuario.getNome();
 		this.numeroOAB = usuario.getNumeroOAB();
 		this.login = usuario.getLogin();
-//		this.nProcesso = usuario.getNroProcesso();
+		//this.nProcesso = usuario.getNroProcesso();
 		this.senha = usuario.getSenha();
 	}
 
@@ -66,5 +70,9 @@ public class DetalharUsuarioDto {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public static List<UsuarioDto> converter(List<Usuario> usuario) {
+		 
+		return usuario.stream().map(UsuarioDto::new).collect(Collectors.toList());
 	}
 }
