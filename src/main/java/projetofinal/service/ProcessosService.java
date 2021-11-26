@@ -2,6 +2,9 @@ package projetofinal.service;
 
 import java.util.List;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -14,12 +17,11 @@ import projetofinal.repository.ProcessosRepository;
 @Service
 public class ProcessosService {
 
-		@Autowired
-		Processos processos;
-		@Autowired
-		Status status;
+		@Enumerated(EnumType.STRING)
+		private Status status;
 		@Autowired
 		private ProcessosRepository processosRepository;
+		private Processos processos;
 		
 		//int numeroprocesso = processos.getNroProcesso();
 		
