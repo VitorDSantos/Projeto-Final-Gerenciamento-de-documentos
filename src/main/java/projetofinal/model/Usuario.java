@@ -9,19 +9,46 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+
 @Entity
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	private Integer numeroOAB;
+	private int numeroOAB;
 	private String login;
 	private String senha;
 	//@ManyToOne
 	//private Cliente cliente;
 	//@OneToMany
 	//private Processos processos;
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 	
 	public Usuario(
 			@NotNull @NotEmpty 
@@ -30,8 +57,8 @@ public class Usuario {
 			String login, 
 			@NotNull @NotEmpty 
 			String senha,
-			@NotNull @NotEmpty 
-			Integer numeroOAB) {
+			@NotNull
+			int numeroOAB) {
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
@@ -39,14 +66,19 @@ public class Usuario {
 	}
 	
 	public Usuario() {
+		
 	}
 	public Usuario(@NotNull @NotEmpty String nome2, @NotNull @NotEmpty String login2, @NotNull @NotEmpty String senha2,
-			@NotNull @NotEmpty int nroProcesso, @NotNull @NotEmpty Integer numeroOAB2) {
+			@NotNull @NotEmpty int nroProcesso, @NotNull int numeroOAB2) {
 	
 	}
 
 
-	public Usuario(String login, String nome, Integer numeroOAB, String senha) {
+	public Usuario(String login, String nome, int numeroOAB, String senha) {
+		this.nome = nome;
+		this.login = login;
+		this.senha = senha;
+		this.numeroOAB = numeroOAB;
 	}
 
 	public String getLogin() {
@@ -61,40 +93,26 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
-
 	public Long getId() {
 		return id;
 	}
-
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
 	public String getNome() {
 		return nome;
 	}
-
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-
 	public Integer getNumeroOAB() {
 		return numeroOAB;
 	}
 
 
-	public void setNumeroOAB(Integer numeroOAB) {
+	public void setNumeroOAB(int numeroOAB) {
 		this.numeroOAB = numeroOAB;
 	}
 
-
-
-
-	
 	}
 	

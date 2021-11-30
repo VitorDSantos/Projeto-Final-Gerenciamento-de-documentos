@@ -27,12 +27,12 @@ import projetofinal.model.Usuario;
 import projetofinal.repository.UsuarioRepository;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/user/api")
 public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	@PostMapping("/aplications")
+	@PostMapping("/aplication")
 	@Transactional
 	@CacheEvict(value = "Usuarios", allEntries = true)
 	public ResponseEntity<UsuarioDto> cadastrar(@RequestBody @Valid FormUsuario form, UriComponentsBuilder uriBuilder) {
@@ -51,7 +51,6 @@ public class UsuarioController {
 			List<Usuario> usuario;
 			
 			usuario = usuarioRepository.findAll();
-			System.out.println("Cache");
 			return UsuarioDto.converter(usuario);
 		}else {
 			List<Usuario> usuario = usuarioRepository.findByNome(nome);
@@ -59,7 +58,7 @@ public class UsuarioController {
 		}
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/aplication/{id}")
 	public ResponseEntity<UsuarioDto> detalhar(@PathVariable Long id) {
 		Optional<Usuario> topico = usuarioRepository.findById(id);
 		if (topico.isPresent()) {
@@ -69,7 +68,7 @@ public class UsuarioController {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/aplication/{id}")
 	@Transactional
 	@CacheEvict(value = "Usuarios", allEntries = true)
 	public ResponseEntity<UsuarioDto> atualizar(@PathVariable Long id, @RequestBody @Valid FormUsuario form) {
@@ -82,7 +81,7 @@ public class UsuarioController {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/aplication/{id}")
 	@Transactional
 	@CacheEvict(value = "Usuarios", allEntries = true)
 	public ResponseEntity<?> remover(@PathVariable Long id) {

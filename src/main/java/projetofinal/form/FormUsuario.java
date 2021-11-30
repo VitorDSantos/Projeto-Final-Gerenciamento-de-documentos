@@ -21,7 +21,7 @@ public class FormUsuario {
 	private String senha;
 	
 	private int nroProcesso;
-	@NotNull @NotEmpty
+	@NotNull
 	private Integer numeroOAB;
 	
 	
@@ -38,7 +38,7 @@ public class FormUsuario {
 	public void setNroProcesso(int nroProcesso) {
 		this.nroProcesso = nroProcesso;
 	}
-	public void setNumeroOAB(Integer numeroOAB) {
+	public void setNumeroOAB(int numeroOAB) {
 		this.numeroOAB = numeroOAB;
 	}
 	public Usuario converter(UsuarioRepository usuarioRepository) {
@@ -46,7 +46,14 @@ public class FormUsuario {
 		return new Usuario(login, nome,numeroOAB , senha);
 	}
 	public Usuario atualizar(Long id, UsuarioRepository usuarioRepository) {
-		return null;
+		Usuario usuario = usuarioRepository.getOne(id);
+		
+		usuario.setNome(this.nome);
+		usuario.setLogin(this.login);
+		usuario.setNumeroOAB(this.numeroOAB);
+		usuario.setSenha(this.senha);
+		
+		return usuario;
 	}
 
 

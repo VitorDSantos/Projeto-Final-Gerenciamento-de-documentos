@@ -9,7 +9,7 @@ import projetofinal.model.Usuario;
 public class UsuarioDto {
 	private Long id;
 	private String nome;
-	private Integer numeroOAB;
+	private int numeroOAB;
 	private String login;
 	private int nProcesso;
 	private String senha;
@@ -24,6 +24,9 @@ public class UsuarioDto {
 		this.senha = usuario.getSenha();
 	}
 
+	public UsuarioDto() {
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -44,7 +47,7 @@ public class UsuarioDto {
 		return numeroOAB;
 	}
 
-	public void setNumeroOAB(Integer numeroOAB) {
+	public void setNumeroOAB(int numeroOAB) {
 		this.numeroOAB = numeroOAB;
 	}
 
