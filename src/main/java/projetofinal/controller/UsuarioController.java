@@ -9,6 +9,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,9 +32,9 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	@PostMapping("/aplication")
+	@PostMapping("/aplications")
 	@Transactional
-	@CacheEvict(value = "lista de usuarios", allEntries = true)
+	@CacheEvict(value = "Usuarios", allEntries = true)
 	public ResponseEntity<UsuarioDto> cadastrar(@RequestBody @Valid FormUsuario form, UriComponentsBuilder uriBuilder) {
 		Usuario user = form.converter(usuarioRepository);
 		usuarioRepository.save(user);
@@ -43,13 +44,14 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/aplication")
+	@Cacheable(value = "Usuarios")
 	public List<UsuarioDto> lista(String nome){
 		
 		if(nome == null) {
 			List<Usuario> usuario;
 			
 			usuario = usuarioRepository.findAll();
-			
+			System.out.println("Cache");
 			return UsuarioDto.converter(usuario);
 		}else {
 			List<Usuario> usuario = usuarioRepository.findByNome(nome);
@@ -69,7 +71,7 @@ public class UsuarioController {
 	
 	@PutMapping("/{id}")
 	@Transactional
-	@CacheEvict(value = "listaDeUsuario", allEntries = true)
+	@CacheEvict(value = "Usuarios", allEntries = true)
 	public ResponseEntity<UsuarioDto> atualizar(@PathVariable Long id, @RequestBody @Valid FormUsuario form) {
 		Optional<Usuario> optional = usuarioRepository.findById(id);
 		if (optional.isPresent()) {
@@ -82,7 +84,7 @@ public class UsuarioController {
 	
 	@DeleteMapping("/{id}")
 	@Transactional
-	@CacheEvict(value = "listaDeTopicos", allEntries = true)
+	@CacheEvict(value = "Usuarios", allEntries = true)
 	public ResponseEntity<?> remover(@PathVariable Long id) {
 		Optional<Usuario> optional = usuarioRepository.findById(id);
 		if (optional.isPresent()) {

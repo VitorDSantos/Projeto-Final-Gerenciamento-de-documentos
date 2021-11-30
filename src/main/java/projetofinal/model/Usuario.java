@@ -31,19 +31,23 @@ public class Usuario {
 			@NotNull @NotEmpty 
 			String senha,
 			@NotNull @NotEmpty 
-			int numeroOAB) {
+			Integer numeroOAB) {
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
 		this.numeroOAB = numeroOAB;
 	}
 	
-
+	public Usuario() {
+	}
 	public Usuario(@NotNull @NotEmpty String nome2, @NotNull @NotEmpty String login2, @NotNull @NotEmpty String senha2,
-			@NotNull @NotEmpty int nroProcesso, @NotNull @NotEmpty int numeroOAB2) {
+			@NotNull @NotEmpty int nroProcesso, @NotNull @NotEmpty Integer numeroOAB2) {
 	
 	}
 
+
+	public Usuario(String login, String nome, Integer numeroOAB, String senha) {
+	}
 
 	public String getLogin() {
 		return login;

@@ -60,8 +60,8 @@ public class UsuarioDto {
 		return nProcesso;
 	}
 
-	public void setNroProcesso(int nro_processo) {
-		this.nProcesso = nro_processo;
+	public void setNroProcesso(int nprocesso) {
+		this.nProcesso = nprocesso;
 	}
 
 	public String getSenha() {

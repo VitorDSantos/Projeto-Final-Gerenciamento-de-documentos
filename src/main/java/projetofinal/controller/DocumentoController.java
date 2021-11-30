@@ -1,5 +1,7 @@
 package projetofinal.controller;
 
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,11 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class DocumentoController {
 	
 	@PostMapping
+	@CacheEvict(value = "Docs", allEntries = true)
 	public ResponseEntity<String> adicionar() {
 		return new ResponseEntity<>("Documento adicionado.", HttpStatus.CREATED); 
 	}
 	
 	@GetMapping
+	@Cacheable(value = "Docs")
 	public ResponseEntity<String> listar() {
 		return new ResponseEntity<>("Todos os documentos listado.", HttpStatus.OK); 
 	}
@@ -31,11 +35,13 @@ public class DocumentoController {
 	}
 	
 	@PutMapping("/{id}")
+	@CacheEvict(value = "Docs", allEntries = true)
 	public ResponseEntity<String> atualizar() {
 		return new ResponseEntity<>("Documento atualizado.", HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
+	@CacheEvict(value = "Docs", allEntries = true)
 	public ResponseEntity<String> remover() {
 		return new ResponseEntity<>("Documento excluido", HttpStatus.OK);
 	}

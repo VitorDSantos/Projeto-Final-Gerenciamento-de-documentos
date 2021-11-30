@@ -8,6 +8,8 @@ import javax.persistence.Enumerated;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -47,6 +49,7 @@ public class ProcessosController {
 	private Processos processos;
 	
 	@GetMapping
+	@Cacheable(value = "Docs")
 		public List<ProcessosDto> filtrando(@RequestParam int numeroprocesso,
 				@RequestParam(required=false)int pag, int quantidade ) { //depois adicionar por status
 			Pageable paginacao= PageRequest.of(pag, quantidade);
@@ -56,6 +59,7 @@ public class ProcessosController {
 		
 		
 	@PostMapping
+	@CacheEvict(value = "Processos", allEntries = true)
 	public ResponseEntity<ProcessosDto> inserir(@RequestBody @Valid FormProcessos form, UriComponentsBuilder uriBuild){
 		Processos processos=form.converte(processosRepository);
 		processosRepository.save(processos);
@@ -69,11 +73,13 @@ public class ProcessosController {
 		return new ProcessosDto (processos);
 	}
 	@PutMapping("/{id}")
+	@CacheEvict(value = "Processos", allEntries = true)
 	public ResponseEntity<ProcessosDto> atualiza(@PathVariable int id, int numeroprocesso, @RequestBody @Valid FormProcessos form){
 		Processos processos=form.atualiza(id, numeroprocesso, processosRepository);
 		return ResponseEntity.ok(new ProcessosDto(processos));
 	}
 	@DeleteMapping ("/{id}")
+	@CacheEvict(value = "Processos", allEntries = true)
 	public ResponseEntity<ProcessosDto> remove(@PathVariable int id, int numeroprocesso){
 		processosRepository.deleteById(id);
 		processosRepository.deleteByNroProcesso(numeroprocesso);
