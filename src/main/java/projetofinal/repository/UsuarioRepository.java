@@ -1,9 +1,8 @@
 package projetofinal.repository;
 
 import java.util.List;
+import java.util.Optional;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -15,5 +14,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 	List<Processos>findByNumeroOAB(Integer numeroOAB);
 	
 	List<Usuario>findByNome(String nome);
+	
+	Optional<Usuario> findByLogin(String login);
 
 }
