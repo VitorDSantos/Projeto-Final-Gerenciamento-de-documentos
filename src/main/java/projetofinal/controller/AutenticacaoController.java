@@ -21,7 +21,11 @@ import projetofinal.form.LoginForm;
 	
 	@RestController
 	@RequestMapping("/auth")
+<<<<<<< HEAD
 	@Profile(value = {"usuario", "api"})
+=======
+	//@Profile(value = {"usuario", "api"})
+>>>>>>> 62486b97da31780ee0630d73e56bb6c00cbc95c9
 	public class AutenticacaoController {
 		
 		@Autowired

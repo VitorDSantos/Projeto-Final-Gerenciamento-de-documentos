@@ -14,7 +14,11 @@ public class Cliente {
 	private int id;
 	private String nome;
 	private String email;
+<<<<<<< HEAD
 	private long telefone;
+=======
+	private Integer telefone;
+>>>>>>> 62486b97da31780ee0630d73e56bb6c00cbc95c9
 	@ManyToOne
 	private Usuario usuario;
 	
@@ -54,11 +58,19 @@ public class Cliente {
 		this.email = email;
 	}
 	
+<<<<<<< HEAD
 	public long getTelefone() {
 		return telefone;
 	}
 	
 	public void setTelefone(long telefone) {
+=======
+	public Integer getTelefone() {
+		return telefone;
+	}
+	
+	public void setTelefone(Integer telefone) {
+>>>>>>> 62486b97da31780ee0630d73e56bb6c00cbc95c9
 		this.telefone = telefone;
 	}
 

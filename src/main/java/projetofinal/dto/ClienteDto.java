@@ -7,7 +7,11 @@ public class ClienteDto {
 	private int id;
 	private String nome;
 	private String email;
+<<<<<<< HEAD
 	private long telefone;
+=======
+	private Integer telefone;
+>>>>>>> 62486b97da31780ee0630d73e56bb6c00cbc95c9
 	private int nro_processo;
 	private Documento documento;
 	
@@ -53,7 +57,11 @@ public class ClienteDto {
 	}
 
 
+<<<<<<< HEAD
 	public long getTelefone() {
+=======
+	public Integer getTelefone() {
+>>>>>>> 62486b97da31780ee0630d73e56bb6c00cbc95c9
 		return telefone;
 	}
 
