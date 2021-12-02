@@ -10,19 +10,19 @@ public class FormDocumento {
 	@NotNull @NotEmpty @Length(min = 2)
 	private String nome;
 	
-	@NotNull @NotEmpty
+	@NotNull
 	private int tipoDocumento;
 
 	@NotNull @NotEmpty @Length(min=3)
 	private String pathArquivo;
 	
-	@NotNull @NotEmpty
+	@NotNull
 	private LocalDate dataUpload;
 	
-	@NotNull @NotEmpty
+	@NotNull
 	private Long usuarioProprietario;
 	
-	@NotNull @NotEmpty
+	@NotNull
 	private Long usuarioId;
 
 	public String getNome() {
