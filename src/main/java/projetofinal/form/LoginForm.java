@@ -7,11 +7,7 @@ public class LoginForm {
 	private String senha;
 	
 	public void setLogin(String login) {
-<<<<<<< HEAD
-		login = login;
-=======
 		this.login = login;
->>>>>>> 62486b97da31780ee0630d73e56bb6c00cbc95c9
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;

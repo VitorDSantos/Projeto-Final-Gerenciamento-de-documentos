@@ -14,11 +14,7 @@ public class Cliente {
 	private int id;
 	private String nome;
 	private String email;
-<<<<<<< HEAD
 	private long telefone;
-=======
-	private Integer telefone;
->>>>>>> 62486b97da31780ee0630d73e56bb6c00cbc95c9
 	@ManyToOne
 	private Usuario usuario;
 	
@@ -30,7 +26,7 @@ public class Cliente {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
-		this.telefone = telefone;
+		this.setTelefone(telefone);
 		this.usuario = usuario;
 	}
 	
@@ -58,21 +54,7 @@ public class Cliente {
 		this.email = email;
 	}
 	
-<<<<<<< HEAD
-	public long getTelefone() {
-		return telefone;
-	}
-	
-	public void setTelefone(long telefone) {
-=======
-	public Integer getTelefone() {
-		return telefone;
-	}
-	
-	public void setTelefone(Integer telefone) {
->>>>>>> 62486b97da31780ee0630d73e56bb6c00cbc95c9
-		this.telefone = telefone;
-	}
+
 
 	public Usuario getUsuario() {
 		return this.usuario;
@@ -88,6 +70,14 @@ public class Cliente {
 
 	public Documento getDocumento() {
 		return null;
+	}
+
+	public long getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(long telefone) {
+		this.telefone = telefone;
 	}
 	
 }

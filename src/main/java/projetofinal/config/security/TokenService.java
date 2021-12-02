@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
-=======
+
 import io.jsonwebtoken.Claims;
->>>>>>> 62486b97da31780ee0630d73e56bb6c00cbc95c9
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import projetofinal.model.Usuario;
@@ -35,8 +33,7 @@ public class TokenService {
 				.signWith(SignatureAlgorithm.HS256, secret) 
 				.compact();
 	}
-<<<<<<< HEAD
-=======
+
 
 	
 	public boolean isTokenValido(String token) {
@@ -53,5 +50,4 @@ public class TokenService {
 		return Long.parseLong(claims.getSubject());
 	}
 
->>>>>>> 62486b97da31780ee0630d73e56bb6c00cbc95c9
 }
