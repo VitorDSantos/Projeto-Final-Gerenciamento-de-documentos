@@ -7,7 +7,7 @@ public class LoginForm {
 	private String senha;
 	
 	public void setLogin(String login) {
-		login = login;
+		this.login = login;
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;

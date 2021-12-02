@@ -46,10 +46,11 @@ public class ConfiguracaoSecurity extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.GET, "/user/api/aplication/*").permitAll()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
-		.antMatchers(HttpMethod.DELETE, "/user/api/aplication/*").hasRole("MODERADOR")
+		.antMatchers(HttpMethod.DELETE, "/user/api/aplication/*").permitAll()
 		.anyRequest().authenticated()
 		.and().csrf().disable()
-		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class);
 	}
 	@Override
 	public void configure(WebSecurity web) throws Exception {
