@@ -1,10 +1,12 @@
-package ProjetoFinal.ApiGerenciadorDoc.model;
+package projetofinal.model;
 
 import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Documento {
@@ -17,8 +19,9 @@ public class Documento {
 	private String pathArquivo;
 	private LocalDate dataUpload;
 	private Long usuarioProprietario;
+	@ManyToOne
 	private Usuario usuario;
-	private Processos processos;
+	//private Processos processos;
 	
 
 	public Documento() {
@@ -93,13 +96,13 @@ public class Documento {
 		this.usuario = usuario;
 	}
 
-	public Processos getProcessos() {
-		return processos;
-	}
+	//public Processos getProcessos() {
+	//	return processos;
+	//}
 
-	public void setProcessos(Processos processos) {
-		this.processos = processos;
-	}
+	//public void setProcessos(Processos processos) {
+	//	this.processos = processos;
+	//}
 
 	
 	

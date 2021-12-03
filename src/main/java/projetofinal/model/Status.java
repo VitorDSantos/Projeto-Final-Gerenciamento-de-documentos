@@ -1,4 +1,4 @@
-package ProjetoFinal.ApiGerenciadorDoc.model;
+package projetofinal.model;
 
 public enum Status {
 

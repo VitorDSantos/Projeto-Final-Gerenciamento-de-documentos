@@ -1,23 +1,26 @@
-package ProjetoFinal.controllers.dtos;
+package projetofinal.dto;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
 
-import ProjetoFinal.ApiGerenciadorDoc.model.Cliente;
-import ProjetoFinal.ApiGerenciadorDoc.model.Documento;
-import ProjetoFinal.ApiGerenciadorDoc.model.Processos;
-import ProjetoFinal.ApiGerenciadorDoc.model.Status;
-import ProjetoFinal.ApiGerenciadorDoc.model.Usuario;
+import projetofinal.model.Cliente;
+import projetofinal.model.Documento;
+import projetofinal.model.Processos;
+import projetofinal.model.Status;
+import projetofinal.model.Usuario;
 
 public class ProcessosDto {
 	
-	private int id;
+	private Long id;
 	private Cliente cliente;
 	private Status status;
 	private String descricao;
 	private String nome;
-	private Date data_criacao;
-	private int nro_processo;
+	private Date dataCriacao;
+	private int numeroprocesso;
 	private Documento documento;
 	private Usuario usuario;
 	
@@ -30,17 +33,17 @@ public class ProcessosDto {
 		this.status=processos.getStatus();
 		this.descricao=processos.getDescricao();
 		this.nome=processos.getNome();
-		this.data_criacao=processos.getData_criacao();
-		this.nro_processo=processos.getNro_processo();
+		this.dataCriacao =processos.getDataCriacao();
+		this.numeroprocesso =processos.getNroProcesso();
 		this.documento=processos.getDocumento();
 		this.usuario=processos.getUsuario();
 	}
 	
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Cliente getCliente() {
@@ -68,16 +71,16 @@ public class ProcessosDto {
 		this.nome = nome;
 	}
 	public Date getData_criacao() {
-		return data_criacao;
+		return dataCriacao;
 	}
 	public void setData_criacao(Date data_criacao) {
-		this.data_criacao = data_criacao;
+		this.dataCriacao = data_criacao;
 	}
 	public int getNro_processo() {
-		return nro_processo;
+		return numeroprocesso;
 	}
 	public void setNro_processo(int nro_processo) {
-		this.nro_processo = nro_processo;
+		this.numeroprocesso = nro_processo;
 	}
 	public Documento getDocumento() {
 		return documento;
@@ -91,10 +94,11 @@ public class ProcessosDto {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
 
-	
-	
+
+	public static List<ProcessosDto> converte(Page<Processos> processos) {
+		return processos.stream().map(ProcessosDto::new).collect(Collectors.toList());
+	}
 	
 	
 }
