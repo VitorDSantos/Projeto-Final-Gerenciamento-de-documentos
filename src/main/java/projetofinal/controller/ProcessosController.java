@@ -30,7 +30,6 @@ import projetofinal.form.FormProcessos;
 import projetofinal.model.Processos;
 import projetofinal.model.Status;
 import projetofinal.repository.ProcessosRepository;
-import projetofinal.service.ProcessosService;
 
 
 @RestController
@@ -42,9 +41,6 @@ public class ProcessosController {
  
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	
-	@Autowired
-	private ProcessosService service;
 	
 	private Processos processos;
 	

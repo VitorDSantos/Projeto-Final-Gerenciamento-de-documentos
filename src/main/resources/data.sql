@@ -2,3 +2,6 @@ INSERT INTO projetofinalcmpso.usuario(login, nome, numerooab, senha) VALUES ("ra
 
 INSERT INTO projetofinalcmpso.documento (data_upload, nome, path_arquivo, tipo_documento, usuario_proprietario, usuario_id)
 VALUES ("2021-11-02", "Comprovante de residência", "\docs\residencia.pdf", 3, 1, 1);
+
+INSERT INTO projetofinalcmpso.cliente(nome, email, telefone) VALUES ("Keila", "keila2020@hotmail.com", 099892921);
+INSERT INTO projetofinalcmpso.cliente(nome, email, telefone) VALUES ("Carla", "carla12@hotmail.com", 099877821);

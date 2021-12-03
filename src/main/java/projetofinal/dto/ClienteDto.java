@@ -7,7 +7,7 @@ public class ClienteDto {
 	private int id;
 	private String nome;
 	private String email;
-	private Integer telefone;
+	private long telefone;
 	private int nro_processo;
 	private Documento documento;
 	
@@ -18,8 +18,6 @@ public class ClienteDto {
 		this.nome= cliente.getNome();
 		this.email= cliente.getEmail();
 		this.telefone= cliente.getTelefone();
-		//this.nro_processo= cliente.getNroProcesso();
-		//this.documento= cliente.getDocumento();
 	}
 
 
@@ -53,7 +51,8 @@ public class ClienteDto {
 	}
 
 
-	public Integer getTelefone() {
+
+	public long getTelefone() {
 		return telefone;
 	}
 

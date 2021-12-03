@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 import projetofinal.model.Documento;
+import projetofinal.model.Cliente;
 import projetofinal.model.Processos;
 import projetofinal.model.Status;
 import projetofinal.model.Usuario;
@@ -20,8 +21,8 @@ import projetofinal.repository.ProcessosRepository;
 public class FormProcessos {
 
 	private int id;
-	@NotNull @NotEmpty
-	private projetofinal.model.Cliente cliente;
+	//@NotNull @NotEmpty
+	private Cliente cliente;
 	@Enumerated(EnumType.STRING)
 	private Status status;
 	@NotNull @NotEmpty 
@@ -32,9 +33,9 @@ public class FormProcessos {
 	private Date dataCriacao;
 	@NotNull @NotEmpty @Length(min=2)
 	private int numeroprocesso;
-	@NotNull @NotEmpty
+	//@NotNull @NotEmpty
 	private Documento documento;
-	@NotNull @NotEmpty
+	//@NotNull @NotEmpty
 	private Usuario usuario;
 	
 	public Processos converte(ProcessosRepository processosRepository) {

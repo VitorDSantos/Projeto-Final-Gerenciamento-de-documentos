@@ -100,9 +100,5 @@ public class ProcessosDto {
 		return processos.stream().map(ProcessosDto::new).collect(Collectors.toList());
 	}
 	
-
-	
-	
-	
 	
 }
