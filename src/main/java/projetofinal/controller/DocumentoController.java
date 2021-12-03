@@ -1,5 +1,7 @@
 package projetofinal.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +12,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import projetofinal.dto.DocumentoDto;
 import projetofinal.form.FormDocumento;
 import projetofinal.service.DocumentoService;
 
@@ -36,25 +40,28 @@ public class DocumentoController {
 	
 	@GetMapping
 	@Cacheable(value = "Docs")
-	public ResponseEntity<String> listar() {
-		return new ResponseEntity<>("Todos os documentos listado.", HttpStatus.OK); 
+	public List<DocumentoDto> listar() {
+		return documentoService.listar();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<String> detalhar() {
-		return new ResponseEntity<>("Documento {X} listado.", HttpStatus.OK);
+	public ResponseEntity<DocumentoDto> detalhar(@PathVariable Long id) {
+		DocumentoDto documentoDto = documentoService.detalhar(id);
+		return ResponseEntity.ok(documentoDto);
 	}
 	
 	@PutMapping("/{id}")
 	@CacheEvict(value = "Docs", allEntries = true)
-	public ResponseEntity<String> atualizar() {
+	public ResponseEntity<String> atualizar(@PathVariable Long id, @RequestBody FormDocumento formDocumento) {
+		documentoService.atualizar(id, formDocumento);
 		return new ResponseEntity<>("Documento atualizado.", HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
 	@CacheEvict(value = "Docs", allEntries = true)
-	public ResponseEntity<String> remover() {
-		return new ResponseEntity<>("Documento excluido", HttpStatus.OK);
+	public ResponseEntity<String> remover(@PathVariable Long id) {
+		documentoService.remover(id);
+		return new ResponseEntity<>("Documento com ID "+id+" foi excluido.", HttpStatus.OK);
 	}
 	
 }
