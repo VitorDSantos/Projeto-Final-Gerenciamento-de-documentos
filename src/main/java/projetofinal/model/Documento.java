@@ -40,7 +40,7 @@ public class Documento {
 		this.usuarioProprietario = usuarioProprietario;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
