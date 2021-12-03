@@ -47,6 +47,7 @@ public class ConfiguracaoSecurity extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.GET, "/user/api/aplication").permitAll()
 		.antMatchers(HttpMethod.GET, "/user/api/aplication/*").permitAll()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
+		.antMatchers(HttpMethod.POST, "/processos").permitAll()
 		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
 		.antMatchers(HttpMethod.DELETE, "/user/api/aplication/*").permitAll()
 		.anyRequest().authenticated()
