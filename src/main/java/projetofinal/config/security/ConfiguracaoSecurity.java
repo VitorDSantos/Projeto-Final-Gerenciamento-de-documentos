@@ -45,6 +45,8 @@ public class ConfiguracaoSecurity extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.GET, "/user/api/aplication").permitAll()
 		.antMatchers(HttpMethod.GET, "/user/api/aplication/*").permitAll()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
+		.antMatchers(HttpMethod.GET, "/processos/*").permitAll()
+		.antMatchers(HttpMethod.GET, "/processos").permitAll()
 		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
 		.antMatchers(HttpMethod.DELETE, "/user/api/aplication/*").permitAll()
 		.anyRequest().authenticated()
@@ -54,7 +56,7 @@ public class ConfiguracaoSecurity extends WebSecurityConfigurerAdapter{
 	}
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		
+		web.ignoring().antMatchers("/**.html", "/v2/api-docs", "/webjars/**", "/configuration/**", "/swagger-resources/**");
 	}
 
 }
