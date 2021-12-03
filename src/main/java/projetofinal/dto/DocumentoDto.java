@@ -1,6 +1,8 @@
 package projetofinal.dto;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import projetofinal.model.Documento;
 import projetofinal.model.Processos;
@@ -18,6 +20,7 @@ public class DocumentoDto {
 	private Processos processos;
 	
 	
+	public DocumentoDto() {}
 	
 	public DocumentoDto (Documento documento) {
 		
@@ -33,7 +36,7 @@ public class DocumentoDto {
 
 
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -116,6 +119,11 @@ public class DocumentoDto {
 	}
 
 
+	public static List<DocumentoDto> converter(List<Documento> documento) {
+		 
+		return documento.stream().map(DocumentoDto::new).collect(Collectors.toList());
+	
+	}
 
 	//public Processos getProcessos() {
 	//	return processos;
