@@ -1,13 +1,18 @@
 package projetofinal.form;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import projetofinal.model.Documento;
 import projetofinal.model.Cliente;
@@ -21,29 +26,36 @@ import projetofinal.repository.ProcessosRepository;
 public class FormProcessos {
 
 	private int id;
-	//@NotNull @NotEmpty
+	//@NotNull 
 	private Cliente cliente;
+	
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	@NotNull @NotEmpty 
+	
+	//@NotNull @NotEmpty 
 	private String descricao;
-	@NotNull @NotEmpty
+	
+	//@NotNull @NotEmpty
 	private String nome;
-	@NotNull @NotEmpty
-	private Date dataCriacao;
-	@NotNull @NotEmpty @Length(min=2)
-	private int numeroprocesso;
-	//@NotNull @NotEmpty
+	
+	//@NotNull 
+	private LocalDate dataCriacao= LocalDate.now();
+	
+//	@NotNull @Min(1)
+	private Integer nroProcesso;
+	
+
 	private Documento documento;
-	//@NotNull @NotEmpty
+	
+	
 	private Usuario usuario;
 	
 	public Processos converte(ProcessosRepository processosRepository) {
-		Processos processos = (Processos) processosRepository.findById(id);
-		return new Processos (numeroprocesso, status, cliente, documento, usuario, dataCriacao);
+		List<Processos> processos= processosRepository.findAll();
+		return new Processos (nroProcesso, status, cliente, documento, usuario, dataCriacao);
 	}
-	public Processos atualiza(int id, int nro_processos, ProcessosRepository processosRepository) {
-		Processos processos = processosRepository.getOne(id);
+	public Processos atualiza(int id, Integer numeroprocesso, ProcessosRepository processosRepository) {
+		Processos processos = processosRepository.findById(id);
 		processos.setCliente(this.cliente);
 		processos.setDataCriacao(this.dataCriacao);
 		processos.setDescricao(this.descricao);
