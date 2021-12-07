@@ -1,7 +1,8 @@
 package projetofinal.model;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,11 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Processos {
@@ -21,17 +18,24 @@ public class Processos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@ManyToOne
-	private Cliente cliente;
-	@Enumerated(EnumType.STRING)
-	private Status status;
-	private String descricao;
-	private String nome;
-	private LocalDate dataCriacao= LocalDate.now();
-	private Integer nroProcesso;
 	
 	@ManyToOne
-	private Documento documento;
+	private Cliente cliente;
+	
+	@Enumerated(EnumType.STRING)
+	private Status status;
+	
+	private String descricao;
+	
+	private String nome;
+	
+	private LocalDate dataCriacao = LocalDate.now();
+	
+	private Integer nroProcesso;
+	
+	@OneToMany(mappedBy="processo")
+	private List<Documento> documento;
+	
 	@ManyToOne
 	private Usuario usuario;
 
@@ -40,19 +44,18 @@ public class Processos {
 	}
 
 	public Processos(
-			@NotNull @Min(1) Integer nroProcesso, 
-			Status status2,
-			@NotNull Cliente cliente,
-			@NotNull Documento documento,
-			@NotNull Usuario usuario, 
-			 @NotNull LocalDate dataCriacao2) {
-
+			Integer nroProcesso, 
+			Status status,
+			Cliente cliente,
+			Usuario usuario, 
+			String descricao,
+			String nome) {
 		this.nroProcesso = nroProcesso;
+		this.status = status;
 		this.cliente = cliente;
-		this.documento = documento;
 		this.usuario = usuario;
-		this.dataCriacao=dataCriacao2;
-		
+		this.descricao = descricao;
+		this.nome = nome;
 	}
 
 	public Integer getId() {
@@ -95,22 +98,16 @@ public class Processos {
 		this.nome = nome;
 	}
 
-	
-
 	public int getNroProcesso() {
-		return nroProcesso;
+		return this.nroProcesso;
 	}
 
 	public void setNroProcesso(Integer nroProcesso) {
-		this.nroProcesso = 0;
+		this.nroProcesso = nroProcesso;
 	}
 
-	public Documento getDocumento() {
+	public List<Documento> getDocumento() {
 		return documento;
-	}
-
-	public void setDocumento(Documento documento) {
-		this.documento = documento;
 	}
 
 	public Usuario getUsuario() {
@@ -122,11 +119,16 @@ public class Processos {
 	}
 
 	public LocalDate getDataCriacao() {
-		return dataCriacao;
+		return this.dataCriacao;
 	}
 
 	public void setDataCriacao(LocalDate dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
 
+	public void setDocumento(List<Documento> documento) {
+		this.documento = documento;
+	}
+
+	
 }

@@ -22,7 +22,7 @@ public class ProcessosDto {
 	private String nome;
 	private LocalDate dataCriacao= LocalDate.now();
 	private Integer nroProcesso;
-	private Documento documento;
+	private List<Documento> documento;
 	private Usuario usuario;
 	
 	
@@ -38,6 +38,7 @@ public class ProcessosDto {
 		this.setNroProcesso(processos.getNroProcesso());
 		this.documento=processos.getDocumento();
 		this.usuario=processos.getUsuario();
+	
 	}
 	
 	
@@ -72,10 +73,10 @@ public class ProcessosDto {
 		this.nome = nome;
 	}
 
-	public Documento getDocumento() {
+	public List<Documento> getDocumento() {
 		return documento;
 	}
-	public void setDocumento(Documento documento) {
+	public void setDocumento(List<Documento> documento) {
 		this.documento = documento;
 	}
 	public Usuario getUsuario() {
@@ -86,7 +87,7 @@ public class ProcessosDto {
 	}
 
 
-	public static List<ProcessosDto> converte(Page<Processos> processos) {
+	public static List<ProcessosDto> converte(List<Processos> processos) {
 		return processos.stream().map(ProcessosDto::new).collect(Collectors.toList());
 	}
 
