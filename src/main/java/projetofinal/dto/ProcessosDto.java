@@ -1,5 +1,6 @@
 package projetofinal.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,13 +15,13 @@ import projetofinal.model.Usuario;
 
 public class ProcessosDto {
 	
-	private Long id;
+	private Integer id;
 	private Cliente cliente;
 	private Status status;
 	private String descricao;
 	private String nome;
-	private Date dataCriacao;
-	private int numeroprocesso;
+	private LocalDate dataCriacao= LocalDate.now();
+	private Integer nroProcesso;
 	private Documento documento;
 	private Usuario usuario;
 	
@@ -33,17 +34,17 @@ public class ProcessosDto {
 		this.status=processos.getStatus();
 		this.descricao=processos.getDescricao();
 		this.nome=processos.getNome();
-		this.dataCriacao =processos.getDataCriacao();
-		this.numeroprocesso =processos.getNroProcesso();
+		this.setDataCriacao(processos.getDataCriacao());
+		this.setNroProcesso(processos.getNroProcesso());
 		this.documento=processos.getDocumento();
 		this.usuario=processos.getUsuario();
 	}
 	
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Cliente getCliente() {
@@ -70,18 +71,7 @@ public class ProcessosDto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getData_criacao() {
-		return dataCriacao;
-	}
-	public void setData_criacao(Date data_criacao) {
-		this.dataCriacao = data_criacao;
-	}
-	public int getNro_processo() {
-		return numeroprocesso;
-	}
-	public void setNro_processo(int nro_processo) {
-		this.numeroprocesso = nro_processo;
-	}
+
 	public Documento getDocumento() {
 		return documento;
 	}
@@ -99,6 +89,29 @@ public class ProcessosDto {
 	public static List<ProcessosDto> converte(Page<Processos> processos) {
 		return processos.stream().map(ProcessosDto::new).collect(Collectors.toList());
 	}
-	
+
+
+	public int getNroProcesso() {
+		return nroProcesso;
+	}
+
+
+	public void setNroProcesso(Integer nroProcesso) {
+		this.nroProcesso = nroProcesso;
+	}
+
+
+	public LocalDate getDataCriacao() {
+		return dataCriacao;
+	}
+
+
+	public void setDataCriacao(LocalDate dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+
+
+
+
 	
 }

@@ -125,14 +125,14 @@ public class DocumentoDto {
 	
 	}
 
-	//public Processos getProcessos() {
-	//	return processos;
-	//}
+	public Processos getProcessos() {
+	return processos;
+	}
 
 
 
-	//public void setProcessos(Processos processos) {
-	//	this.processos = processos;
-	//}
+	public void setProcessos(Processos processos) {
+		this.processos = processos;
+	}
 	
 }
