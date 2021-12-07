@@ -24,6 +24,9 @@ public class FormDocumento {
 	
 	@NotNull
 	private Long usuarioId;
+	
+	@NotNull
+	private Integer processoId;
 
 	public String getNome() {
 		return nome;
@@ -71,6 +74,14 @@ public class FormDocumento {
 
 	public void setUsuarioId(Long usuarioId) {
 		this.usuarioId = usuarioId;
+	}
+
+	public Integer getProcessoId() {
+		return processoId;
+	}
+
+	public void setProcessoId(Integer processoId) {
+		this.processoId = processoId;
 	}
 	
 }
