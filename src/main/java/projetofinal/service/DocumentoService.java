@@ -12,12 +12,16 @@ import projetofinal.dto.UsuarioDto;
 import projetofinal.form.FormDocumento;
 import projetofinal.model.Documento;
 import projetofinal.repository.DocumentoRepository;
+import projetofinal.repository.ProcessosRepository;
 
 @Service
 public class DocumentoService {
 
 	@Autowired
 	private DocumentoRepository documentoRepository;
+	
+	@Autowired
+	private ProcessosRepository processoRepository;
 
 	public void cadastrar(FormDocumento documentoForm) {
 
@@ -28,6 +32,7 @@ public class DocumentoService {
 		cadastrarDocumento.setPathArquivo(documentoForm.getPathArquivo());
 		cadastrarDocumento.setTipoDocumento(documentoForm.getTipoDocumento());
 		cadastrarDocumento.setUsuarioProprietario(documentoForm.getUsuarioProprietario());
+		cadastrarDocumento.setProcesso(processoRepository.getById(documentoForm.getProcessoId()));
 
 		documentoRepository.save(cadastrarDocumento);
 	}
