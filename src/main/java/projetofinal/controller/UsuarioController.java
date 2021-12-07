@@ -45,19 +45,19 @@ public class UsuarioController {
 		return new ResponseEntity<>("Usuario adicionado.", HttpStatus.CREATED); 
 	}
 	
-	@GetMapping("/aplication")
+	@GetMapping
 	@Cacheable(value = "Users")
 	public List<UsuarioDto> listar() {
 		return usuarioService.listar();
 	}
 	
-	@GetMapping("/aplication/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<UsuarioDto> detalhar(@PathVariable Long id) {
 		UsuarioDto usuarioDto = usuarioService.detalhar(id);
 		return ResponseEntity.ok(usuarioDto);
 	}
 	
-	@PutMapping("/aplication/{id}")
+	@PutMapping("/{id}")
 	@Transactional
 	@CacheEvict(value = "Users", allEntries = true)
 	public ResponseEntity<String> atualizar(@PathVariable Long id, @RequestBody FormUsuario formUser) {
@@ -65,7 +65,7 @@ public class UsuarioController {
 		return new ResponseEntity<>("Usuario atualizado.", HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/aplication/{id}")
+	@DeleteMapping("/{id}")
 	@Transactional
 	@CacheEvict(value = "Users", allEntries = true)
 	public ResponseEntity<String> remover(@PathVariable Long id) {
