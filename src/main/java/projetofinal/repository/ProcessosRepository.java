@@ -11,7 +11,8 @@ public interface ProcessosRepository extends JpaRepository <Processos,Integer>{
 	
 	Page<Processos> findByNroProcesso(Integer nroProcesso, Pageable paginacao);
 	
-	Processos findById(int id);
+	Processos getById(Integer id);
+	
 	void deleteByNroProcesso(Integer nroProcesso);
 
 //	Page<Processos> findByStatus(Status status, Pageable paginacao);
