@@ -1,5 +1,6 @@
 package projetofinal.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -18,15 +20,16 @@ public class Processos {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	@ManyToOne
 	private Cliente cliente;
 	@Enumerated(EnumType.STRING)
 	private Status status;
 	private String descricao;
 	private String nome;
-	private Date dataCriacao;
-	private int nroProcesso;
+	private LocalDate dataCriacao= LocalDate.now();
+	private Integer nroProcesso;
+	
 	@ManyToOne
 	private Documento documento;
 	@ManyToOne
@@ -37,25 +40,26 @@ public class Processos {
 	}
 
 	public Processos(
-			@NotNull @NotEmpty @Length(min = 2) int nroProcesso, 
+			@NotNull @Min(1) Integer nroProcesso, 
 			Status status2,
-			@NotNull @NotEmpty Cliente cliente,
-			@NotNull @NotEmpty Documento documento,
-			@NotNull @NotEmpty Usuario usuario, 
-			@NotNull @NotEmpty Date dataCriacao) {
+			@NotNull Cliente cliente,
+			@NotNull Documento documento,
+			@NotNull Usuario usuario, 
+			 @NotNull LocalDate dataCriacao2) {
 
 		this.nroProcesso = nroProcesso;
 		this.cliente = cliente;
 		this.documento = documento;
 		this.usuario = usuario;
+		this.dataCriacao=dataCriacao2;
 		
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -91,20 +95,14 @@ public class Processos {
 		this.nome = nome;
 	}
 
-	public Date getDataCriacao() {
-		return dataCriacao;
-	}
-
-	public void setDataCriacao(Date dataCriacao) {
-		this.dataCriacao = dataCriacao;
-	}
+	
 
 	public int getNroProcesso() {
 		return nroProcesso;
 	}
 
-	public void setNroProcesso(int numeroprocesso) {
-		this.nroProcesso = numeroprocesso;
+	public void setNroProcesso(Integer nroProcesso) {
+		this.nroProcesso = 0;
 	}
 
 	public Documento getDocumento() {
@@ -121,6 +119,14 @@ public class Processos {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public LocalDate getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public void setDataCriacao(LocalDate dataCriacao) {
+		this.dataCriacao = dataCriacao;
 	}
 
 }

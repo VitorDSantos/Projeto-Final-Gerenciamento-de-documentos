@@ -11,18 +11,36 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String nome;
 	private String email;
 	private long telefone;
 	@ManyToOne
 	private Usuario usuario;
-	
+	private Processos processos;
+	public Processos getProcessos() {
+		return processos;
+	}
+
+	public void setProcessos(Processos processos) {
+		this.processos = processos;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public void setNroProcesso(Integer nroProcesso) {
+	}
 
 	public Cliente() {
 	}
 	
-	public Cliente(int id, String nome, String email, Integer telefone, Usuario usuario) {
+	public Cliente(Integer id, String nome, String email, Integer telefone, Usuario usuario, Integer nroProcesso) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
@@ -64,7 +82,7 @@ public class Cliente {
 		this.usuario = usuario;
 	}
 
-	public int getNro_processo() {
+	public int getNroProcesso() {
 		return 0;
 	}
 
@@ -79,5 +97,6 @@ public class Cliente {
 	public void setTelefone(long telefone) {
 		this.telefone = telefone;
 	}
+
 	
 }

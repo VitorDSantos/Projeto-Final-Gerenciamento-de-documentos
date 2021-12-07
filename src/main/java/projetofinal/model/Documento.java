@@ -21,7 +21,7 @@ public class Documento {
 	private Long usuarioProprietario;
 	@ManyToOne
 	private Usuario usuario;
-	//private Processos processos;
+	private Processos processos;
 	
 
 	public Documento() {
@@ -96,15 +96,13 @@ public class Documento {
 		this.usuario = usuario;
 	}
 
-	//public Processos getProcessos() {
-	//	return processos;
-	//}
+	public Processos getProcessos() {
+		return processos;
+	}
 
-	//public void setProcessos(Processos processos) {
-	//	this.processos = processos;
-	//}
-
-	
+	public void setProcessos(Processos processos) {
+		this.processos = processos;
+	}	
 	
 	
 }
