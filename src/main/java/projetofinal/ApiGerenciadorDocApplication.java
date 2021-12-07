@@ -12,7 +12,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class ApiGerenciadorDocApplication {
 
 	public static void main(String[] args) {
-		System.setProperty("spring.devtools.restart.enabled", "false");
 		SpringApplication.run(ApiGerenciadorDocApplication.class, args);
 	}
 
