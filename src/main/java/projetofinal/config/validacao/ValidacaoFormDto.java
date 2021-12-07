@@ -7,7 +7,6 @@ public class ValidacaoFormDto {
 	
 	
 	public ValidacaoFormDto(String campo, String erro) {
-		super();
 		this.campo = campo;
 		this.erro = erro;
 	}
