@@ -2,9 +2,11 @@ package projetofinal.config.validacao;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -33,4 +35,9 @@ public class ValidacaoHandler {
 		return validacaoFormDto; 
 	}
 	
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(DataIntegrityViolationException.class)
+	public ValidacaoSqlDto handle(DataIntegrityViolationException exception){
+		return new ValidacaoSqlDto(exception.getMostSpecificCause().getLocalizedMessage()); 
+	}
 }
