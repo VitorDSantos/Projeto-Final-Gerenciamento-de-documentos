@@ -26,6 +26,21 @@ public class FormUsuario {
 	
 	
 	
+	public String getNome() {
+		return nome;
+	}
+	public String getLogin() {
+		return login;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public int getNroProcesso() {
+		return nroProcesso;
+	}
+	public Integer getNumeroOAB() {
+		return numeroOAB;
+	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
