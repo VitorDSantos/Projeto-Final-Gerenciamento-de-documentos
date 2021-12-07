@@ -8,6 +8,7 @@ class ApiGerenciadorDocApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
 	}
 
 }
