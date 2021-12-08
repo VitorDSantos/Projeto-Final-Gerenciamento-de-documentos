@@ -13,8 +13,6 @@ import projetofinal.service.DocumentoService;
 @AutoConfigureMockMvc
 public class DocumentoServiceTest {
 
-	@MockBean
-	private DocumentoRepository documentoRepository;
 	
 	@Autowired
 	private DocumentoService service;

@@ -7,5 +7,6 @@ import projetofinal.model.Documento;
 public interface DocumentoRepository extends JpaRepository<Documento, Long> {
 
 	Optional<Documento> findById(Long id);
+
 	
 }
