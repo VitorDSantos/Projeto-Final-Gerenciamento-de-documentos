@@ -1,6 +1,7 @@
 package projetofinal.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,14 +15,22 @@ public class Documento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
 	private String nome;
+	
 	private int tipoDocumento;
+	
 	private String pathArquivo;
+	
 	private LocalDate dataUpload;
+	
 	private Long usuarioProprietario;
+	
 	@ManyToOne
 	private Usuario usuario;
-	//private Processos processos;
+	
+	@ManyToOne
+	private Processos processo;
 	
 
 	public Documento() {
@@ -32,15 +41,19 @@ public class Documento {
 			int tipoDocumento, 
 			String pathArquivo, 
 			LocalDate dataUpload,
-			Long usuarioProprietario) {
+			Long usuarioProprietario,
+			Usuario usuario,
+			Processos processo) {
 		this.nome = nome;
 		this.tipoDocumento = tipoDocumento;
 		this.pathArquivo = pathArquivo;
 		this.dataUpload = dataUpload;
 		this.usuarioProprietario = usuarioProprietario;
+		this.usuario = usuario;
+		this.processo = processo;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -96,15 +109,12 @@ public class Documento {
 		this.usuario = usuario;
 	}
 
-	//public Processos getProcessos() {
-	//	return processos;
-	//}
+	public Processos getProcesso() {
+		return processo;
+	}
 
-	//public void setProcessos(Processos processos) {
-	//	this.processos = processos;
-	//}
-
-	
-	
-	
+	public void setProcesso(Processos processo) {
+		this.processo = processo;
+	}
+ 
 }

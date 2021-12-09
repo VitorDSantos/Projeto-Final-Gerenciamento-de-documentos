@@ -1,28 +1,39 @@
 package projetofinal.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
+	
 	private String nome;
+	
 	private String email;
+	
 	private long telefone;
+	
 	@ManyToOne
 	private Usuario usuario;
 	
-
+	@OneToMany
+	private List<Processos> processos;
+	
+	
 	public Cliente() {
+	
 	}
 	
-	public Cliente(int id, String nome, String email, Integer telefone, Usuario usuario) {
+	public Cliente(Integer id, String nome, String email, Integer telefone, Usuario usuario) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
@@ -54,8 +65,6 @@ public class Cliente {
 		this.email = email;
 	}
 	
-
-
 	public Usuario getUsuario() {
 		return this.usuario;
 	}
@@ -64,20 +73,20 @@ public class Cliente {
 		this.usuario = usuario;
 	}
 
-	public int getNro_processo() {
-		return 0;
-	}
-
-	public Documento getDocumento() {
-		return null;
-	}
-
 	public long getTelefone() {
 		return telefone;
 	}
 
 	public void setTelefone(long telefone) {
 		this.telefone = telefone;
+	}
+
+	public List<Processos> getProcessos() {
+		return processos;
+	}
+
+	public void setProcessos(List<Processos> processos) {
+		this.processos = processos;
 	}
 	
 }
