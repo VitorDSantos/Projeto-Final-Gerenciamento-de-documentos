@@ -13,7 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import projetofinal.model.Usuario;
 import projetofinal.repository.UsuarioRepository;
-import projetofinal.service.UsuarioService;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -22,13 +21,9 @@ class UsuarioTest {
 
 	@Autowired(required=true)
 	UsuarioRepository repository;
-	
-//	@Autowired
-//	UsuarioService service;
-
-	
+		
 	@Test
-	void testAdicaoDeUsuario() throws Exception {
+	void testAdicaoDeUsuario(){
 		Usuario usuario = new Usuario("vitor","Vitor",1,"123");
 		this.repository.save(usuario);
 		
@@ -80,7 +75,7 @@ class UsuarioTest {
 	}
 	
 	@Test
-	void testeUsuarioProcuraPorLogin() throws Exception {
+	void testeUsuarioProcuraPorLogin(){
 		Usuario users = new Usuario("vitor","Vitor",1,"123");
 		Usuario users2 = new Usuario("vini","Vini",2,"123");
 		this.repository.save(users);
@@ -89,6 +84,15 @@ class UsuarioTest {
 		String login = users.getLogin();
 		Optional<Usuario> logado = repository.findByLogin(login);
 		Assertions.assertThat(logado).isNotEmpty();
+
+	}
+	@Test
+	void testeUsuarioProcuraPorNumeroOAB(){
+		Usuario users = new Usuario("vitor","Vitor",1,"123");
+		this.repository.save(users);
+		List<Usuario> numero = repository.findByNumeroOAB(1);
+		Assertions.assertThat(numero).isNotEmpty();
+		Assertions.assertThat(users.getNumeroOAB()).isEqualTo(1);
 
 	}
 }

@@ -11,7 +11,7 @@ import projetofinal.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 	
-	List<Processos>findByNumeroOAB(Integer numeroOAB);
+	List<Usuario>findByNumeroOAB(Integer numeroOAB);
 	
 	List<Usuario>findByNome(String nome);
 	

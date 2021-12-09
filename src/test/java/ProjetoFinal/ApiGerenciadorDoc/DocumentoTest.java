@@ -1,7 +1,6 @@
 package ProjetoFinal.ApiGerenciadorDoc;
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -9,14 +8,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.format.datetime.joda.LocalDateParser;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 
 import projetofinal.model.Documento;
-import projetofinal.model.Usuario;
 import projetofinal.repository.DocumentoRepository;
-import projetofinal.repository.UsuarioRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -28,8 +23,8 @@ class DocumentoTest {
 
 	
 	@Test
-	void testSaveDocumento() throws Exception {
-		Documento documento = new Documento("Documento1",1,"docs/pdfs",null,null,null, null);
+	void testSaveDocumento(){
+		Documento documento = new Documento("Documento1",1,"docs/pdfs",null,(long) 1,null,null);
 		this.repository.save(documento);
 		
 		Assertions.assertThat(documento.getId()).isNotNull();
@@ -38,8 +33,54 @@ class DocumentoTest {
 
 		Assertions.assertThat(documento.getTipoDocumento()).isEqualTo(1);
 
+		Assertions.assertThat(documento.getUsuarioProprietario()).isEqualTo(1);
+		
 		Assertions.assertThat(documento.getPathArquivo()).isEqualTo("docs/pdfs");
 
-		Assertions.assertThat(documento.getId()).isEqualTo(2);
+		Assertions.assertThat(documento.getId()).isEqualTo(4);
+	}
+
+	@Test
+	void testUpdateDocumento(){
+		Documento documento = new Documento("Documento1",1,"docs/pdfs",null,(long) 1,null,null);
+		this.repository.save(documento);
+		
+		documento.setNome("Doc1");
+		documento.setTipoDocumento(2);
+		documento.setPathArquivo("docs/arquivos");
+		documento.setUsuarioProprietario((long) 2);
+		
+		
+		Assertions.assertThat(documento.getId()).isNotNull();
+
+		Assertions.assertThat(documento.getNome()).isEqualTo("Doc1");
+
+		Assertions.assertThat(documento.getTipoDocumento()).isEqualTo(2);
+
+		Assertions.assertThat(documento.getUsuarioProprietario()).isEqualTo(2);
+
+		Assertions.assertThat(documento.getPathArquivo()).isEqualTo("docs/arquivos");
+
+		Assertions.assertThat(documento.getId()).isEqualTo(5);
+	}
+	@Test
+	void testeDeleteDoc() {
+		Documento doc = new Documento("Documento1",1,"docs/pdfs",null,(long) 1,null,null);
+		this.repository.save(doc);
+		Long id = doc.getId();
+		repository.deleteById(id);
+		Assertions.assertThat(repository.findById(doc.getId())).isEmpty();
+		
+		
+	}
+	@Test
+	void testeDocProcuraPorId(){
+		Documento doc = new Documento("Documento1",1,"docs/pdfs",null,(long) 1,null,null);
+		this.repository.save(doc);
+		
+		Long id = doc.getId();
+		Optional<Documento> ids = repository.findById(id);
+		Assertions.assertThat(ids).isNotEmpty();
+
 	}
 }
