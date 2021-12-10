@@ -1,59 +1,118 @@
 package projetofinal.form;
 
-import java.util.Date;
-
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
-
-import projetofinal.model.Documento;
-import projetofinal.model.Cliente;
-import projetofinal.model.Processos;
 import projetofinal.model.Status;
-import projetofinal.model.Usuario;
-import projetofinal.repository.ProcessosRepository;
-
-
 
 public class FormProcessos {
 
-	private int id;
-	//@NotNull @NotEmpty
-	private Cliente cliente;
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	@NotNull @NotEmpty 
+
+	@NotNull
+	@NotEmpty
 	private String descricao;
-	@NotNull @NotEmpty
+
+	@NotNull
+	@NotEmpty
 	private String nome;
-	@NotNull @NotEmpty
-	private Date dataCriacao;
-	@NotNull @NotEmpty @Length(min=2)
-	private int numeroprocesso;
-	//@NotNull @NotEmpty
-	private Documento documento;
-	//@NotNull @NotEmpty
-	private Usuario usuario;
+
+	@NotNull
+	@Min(1)
+	private Integer nroProcesso;
+
+	private Long documento;
+
+	private Long usuario;
+
+	private Integer cliente;
 	
-	public Processos converte(ProcessosRepository processosRepository) {
-		Processos processos = (Processos) processosRepository.findById(id);
-		return new Processos (numeroprocesso, status, cliente, documento, usuario, dataCriacao);
-	}
-	public Processos atualiza(int id, int nro_processos, ProcessosRepository processosRepository) {
-		Processos processos = processosRepository.getOne(id);
-		processos.setCliente(this.cliente);
-		processos.setDataCriacao(this.dataCriacao);
-		processos.setDescricao(this.descricao);
-		processos.setDocumento(this.documento);
-		processos.setNome(this.nome);
-		processos.setUsuario(this.usuario);
-		processos.setStatus(this.status);
-		return processos;
+	
+	public Integer getCliente() {
+		return cliente;
 	}
 
-	
+
+
+	public void setCliente(Integer cliente) {
+		this.cliente = cliente;
 	}
 
+
+
+	public Status getStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+
+	public Integer getNroProcesso() {
+		return nroProcesso;
+	}
+
+
+
+	public void setNroProcesso(Integer nroProcesso) {
+		this.nroProcesso = nroProcesso;
+	}
+
+
+
+	public Long getDocumento() {
+		return documento;
+	}
+
+
+
+	public void setDocumento(Long documento) {
+		this.documento = documento;
+	}
+
+
+
+	public Long getUsuario() {
+		return usuario;
+	}
+
+
+
+	public void setUsuario(Long usuario) {
+		this.usuario = usuario;
+	}
+
+}

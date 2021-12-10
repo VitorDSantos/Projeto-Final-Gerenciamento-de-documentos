@@ -1,43 +1,71 @@
 package projetofinal.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import projetofinal.dto.ProcessosDto;
+import projetofinal.form.FormProcessos;
+import projetofinal.form.FormProcessosUpd;
 import projetofinal.model.Processos;
-import projetofinal.model.Status;
 import projetofinal.repository.ProcessosRepository;
+import projetofinal.repository.UsuarioRepository;
 
 @Service
 public class ProcessosService {
 
-		@Enumerated(EnumType.STRING)
-		private Status status;
-		@Autowired
-		private ProcessosRepository processosRepository;
-		private Processos processos;
+	@Autowired
+	private ProcessosRepository processosRepository;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
+	public void cadastrar(FormProcessos formProcessos) {
+		Processos novoProcesso = new Processos();
 		
-		//int numeroprocesso = processos.getNroProcesso();
+		novoProcesso.setNome(formProcessos.getNome());
+		novoProcesso.setDescricao(formProcessos.getDescricao());
+		novoProcesso.setStatus(formProcessos.getStatus());
+		novoProcesso.setNroProcesso(formProcessos.getNroProcesso());
+		novoProcesso.setUsuario(usuarioRepository.getById(formProcessos.getUsuario()));
 		
-//		public List<ProcessosDto> filtrandoStatus(Status status) {
-//			
-//			if(status ==null) {
-//				Page<Processos> processos = (Page<Processos>) processosRepository.findAll();
-//				return ProcessosDto.converte(processos);
-//			} else {
-//			List<Processos> processos = processosRepository.findByStatus(status);
-//			return ProcessosDto.converte(processos);}
-//			}
-			
-		public List<ProcessosDto> filtrandoNro(int numeroProcesso) {
-			Page<Processos> processosPage = processosRepository.findByNroProcesso(numeroProcesso, null);
-			return ProcessosDto.converte(processosPage);
+		processosRepository.save(novoProcesso);
+	
+	}
+	
+	
+	@Transactional
+	public boolean atualizar(Integer id, FormProcessosUpd form) {
+		Optional<Processos> processoUpd = processosRepository.findById(id);
+		
+		if(processoUpd.isPresent()) {
+			Processos proc = processoUpd.get();
+			proc.setStatus(form.getStatus());
+		} else {
+			return false;
 		}
 		
+		return true;
+	}
+	
+	
+	public List<ProcessosDto> listar() {
+		List<Processos> processos;
+		processos = processosRepository.findAll();
+		return ProcessosDto.converte(processos);
+	}
+	
+	
+	public Optional<Processos> detalhar(Integer id) {
+		return processosRepository.findById(id);
+	}
+	
+	
+	public void remover(Integer id) {
+		processosRepository.deleteById(id);
+	}
 }
