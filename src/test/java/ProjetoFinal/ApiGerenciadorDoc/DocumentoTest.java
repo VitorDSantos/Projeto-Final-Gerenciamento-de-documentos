@@ -3,6 +3,7 @@ package ProjetoFinal.ApiGerenciadorDoc;
 import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ class DocumentoTest {
 
 	
 	@Test
+	@DisplayName("Deveria Salvar Um Documento")
 	void testSaveDocumento(){
 		Documento documento = new Documento("Documento1",1,"docs/pdfs",null,(long) 1,null,null);
 		this.repository.save(documento);

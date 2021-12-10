@@ -1,12 +1,16 @@
 package projetofinal.service;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import projetofinal.dto.ProcessosDto;
 import projetofinal.form.FormProcessos;
+import projetofinal.form.FormProcessosUpd;
 import projetofinal.model.Processos;
 import projetofinal.repository.DocumentoRepository;
 import projetofinal.repository.ProcessosRepository;
@@ -41,10 +45,19 @@ public class ProcessosService {
 	}
 	
 	
-	//@Transactional
-	//public void atualizar() {
+	@Transactional
+	public boolean atualizar(Integer id, FormProcessosUpd form) {
+		Optional<Processos> processoUpd = processosRepository.findById(id);
 		
-	//}
+		if(processoUpd.isPresent()) {
+			Processos proc = processoUpd.get();
+			proc.setStatus(form.getStatus());
+		} else {
+			return false;
+		}
+		
+		return true;
+	}
 	
 	
 	public List<ProcessosDto> listar() {
@@ -54,9 +67,9 @@ public class ProcessosService {
 	}
 	
 	
-	//public ProcessosDto detalhar(Integer id) {
-	//	Optional<Processos> processo = processosRepository.findById(id);
-	//}
+	public Optional<Processos> detalhar(Integer id) {
+		return processosRepository.findById(id);
+	}
 	
 	
 	public void remover(Integer id) {

@@ -45,15 +45,15 @@ public class ConfiguracaoSecurity extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers(HttpMethod.GET, "/user/api/aplication").permitAll()
-		.antMatchers(HttpMethod.GET, "/user/api/aplication/*").permitAll()
+		.antMatchers(HttpMethod.GET, "/api/user").permitAll()
+		.antMatchers(HttpMethod.GET, "/api/user/*").permitAll()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.antMatchers(HttpMethod.POST, "/processos").authenticated()
 		.antMatchers(HttpMethod.GET, "/processos/*").authenticated()
 		.antMatchers(HttpMethod.DELETE, "/processoss/{id}").authenticated()
 		.antMatchers(HttpMethod.GET, "/processos").permitAll()
 		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
-		.antMatchers(HttpMethod.DELETE, "/user/api/aplication/*").permitAll()
+		.antMatchers(HttpMethod.DELETE, "/api/user/*").permitAll()
 		.antMatchers(HttpMethod.GET, "/api/doc").authenticated()
 		.antMatchers(HttpMethod.POST, "/api/doc").authenticated()
 		.antMatchers(HttpMethod.PUT, "/api/doc").authenticated()
