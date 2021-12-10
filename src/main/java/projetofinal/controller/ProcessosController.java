@@ -1,15 +1,29 @@
 package projetofinal.controller;
 
+import java.util.List;
+import java.util.Optional;
+import javax.persistence.Cacheable;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import projetofinal.dto.ProcessosDto;
 import projetofinal.form.FormProcessos;
+import projetofinal.form.FormProcessosUpd;
+import projetofinal.model.Processos;
 import projetofinal.service.ProcessosService;
 
 @RestController
@@ -26,37 +40,38 @@ public class ProcessosController {
 		return new ResponseEntity<>("Processo adicionado", HttpStatus.CREATED);
 	}
 	
-	/*
+	
 	@GetMapping
-	@Cacheable(value = "Processo")
-	public List<ProcessosDto> listar(){
-			int quantidade) { // depois adicionar por status
-		Pageable paginacao = PageRequest.of(pag, quantidade);
-		Page<Processos> processosPage = processosRepository.findByNroProcesso(numeroprocesso, paginacao);
-		return ProcessosDto.converte(processosPage);
-	}*/
+	//@Cacheable(value = "Processo")
+	public List<ProcessosDto> listar() { 
+		//Pageable paginacao = PageRequest.of(pag, quantidade);
+		//Page<Processos> processosPage = processosRepository.findByNroProcesso(numeroprocesso, paginacao);
+		//return ProcessosDto.converte(processosPage);
+		
+		return processosService.listar();
+	}
 	
 
-	/*
 	@GetMapping("/{id}")
-	public ProcessosDto detalha(@PathVariable int id) {
-		Processos processos = processosRepository.findById(id);
-		return new ProcessosDto(processos);
+	public Optional<Processos> detalhar(@PathVariable Integer id) {
+		return processosService.detalhar(id);
 	}
 
+	
 	@PutMapping("/{id}")
 	@CacheEvict(value = "Processos", allEntries = true)
-	public ResponseEntity<ProcessosDto> atualiza(@PathVariable int id, Integer numeroprocesso,
-			@RequestBody @Valid FormProcessos form) {
-		Processos processos = form.atualiza(id, numeroprocesso, processosRepository);
-		return ResponseEntity.ok(new ProcessosDto(processos));
+	public ResponseEntity<String> atualiza(@PathVariable Integer id, @RequestBody @Valid FormProcessosUpd form){
+		if(!processosService.atualizar(id, form)) {
+			return ResponseEntity.badRequest().body("Processo não encontrado.");
+		}
+		return ResponseEntity.ok("Processo atualizado");
 	}
+	
 
 	@DeleteMapping("/{id}")
 	@CacheEvict(value = "Processos", allEntries = true)
-	public ResponseEntity<ProcessosDto> remove(@PathVariable int id, Integer numeroprocesso) {
-		processosRepository.deleteById(id);
-		processosRepository.deleteByNroProcesso(numeroprocesso);
-		return ResponseEntity.ok().build();
-	}*/
+	public ResponseEntity<String> remove(@PathVariable Integer id) {
+		processosService.remover(id);
+		return ResponseEntity.ok("Processo com id "+id+" foi removido.");
+	}
 }
