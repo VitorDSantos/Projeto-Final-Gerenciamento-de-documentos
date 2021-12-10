@@ -1,5 +1,6 @@
 package ProjetoFinal.ApiGerenciadorDoc;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
@@ -22,11 +23,13 @@ class DocumentoTest {
 	@Autowired(required=true)
 	DocumentoRepository repository;
 
-	
+
 	@Test
 	@DisplayName("Deveria Salvar Um Documento")
-	void testSaveDocumento(){
-		Documento documento = new Documento("Documento1",1,"docs/pdfs",null,(long) 1,null,null);
+	void deveriaSalvarDocumento(){
+
+		Documento documento = new Documento("Documento1",1,"docs/pdfs",LocalDate.now(),(long) 1,null, null);
+
 		this.repository.save(documento);
 		
 		Assertions.assertThat(documento.getId()).isNotNull();
@@ -40,10 +43,14 @@ class DocumentoTest {
 		Assertions.assertThat(documento.getPathArquivo()).isEqualTo("docs/pdfs");
 
 		Assertions.assertThat(documento.getId()).isEqualTo(4);
+		
+		Assertions.assertThat(documento.getDataUpload()).isEqualTo(LocalDate.now());
 	}
 
+
+	@DisplayName("Deveria atualizar um documento")
 	@Test
-	void testUpdateDocumento(){
+	void deveriaAtualizarDocumento(){
 		Documento documento = new Documento("Documento1",1,"docs/pdfs",null,(long) 1,null,null);
 		this.repository.save(documento);
 		
@@ -65,8 +72,10 @@ class DocumentoTest {
 
 		Assertions.assertThat(documento.getId()).isEqualTo(5);
 	}
+	
+	@DisplayName("Deveria deletar um documento")
 	@Test
-	void testeDeleteDoc() {
+	void deveriaDeletarDocumento() {
 		Documento doc = new Documento("Documento1",1,"docs/pdfs",null,(long) 1,null,null);
 		this.repository.save(doc);
 		Long id = doc.getId();
@@ -75,6 +84,8 @@ class DocumentoTest {
 		
 		
 	}
+
+	@DisplayName("Deveria procurar um documento pelo id")
 	@Test
 	void testeDocProcuraPorId(){
 		Documento doc = new Documento("Documento1",1,"docs/pdfs",null,(long) 1,null,null);

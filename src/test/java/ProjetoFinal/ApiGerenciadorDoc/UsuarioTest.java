@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,10 @@ class UsuarioTest {
 	@Autowired(required=true)
 	UsuarioRepository repository;
 		
+
+	@DisplayName("Deveria salvar um usuario")
 	@Test
-	void testAdicaoDeUsuario(){
+	void deveriaAdicionarUsuario(){
 		Usuario usuario = new Usuario("vitor","Vitor",1,"123");
 		this.repository.save(usuario);
 		
@@ -34,8 +37,10 @@ class UsuarioTest {
 		Assertions.assertThat(usuario.getNumeroOAB()).isEqualTo(1);
 		
 	}
+
+	@DisplayName("Deveria deletar um usuario")
 	@Test
-	void testeDeleteUser() {
+	void deveriaDeletarUsuario() {
 		Usuario users = new Usuario("vitor","Vitor",1,"123");
 		this.repository.save(users);
 		Long id = users.getId();
@@ -44,8 +49,11 @@ class UsuarioTest {
 		
 		
 	}
+	
+
+	@DisplayName("Deveria atualizar um usuario")
 	@Test
-	void testeUpdateUser() {
+	void deveriaAtualizarUsuario() {
 		Usuario users = new Usuario("vitor","Vitor",1,"123");
 		this.repository.save(users);
 		
@@ -62,6 +70,8 @@ class UsuarioTest {
 		
 		
 	}
+
+	@DisplayName("Deveria procuprar um usuario pelo nome")
 	@Test
 	void testeUsuarioProcuraPorNome()   {
 		Usuario users = new Usuario("vitor","Vitor",1,"123");
@@ -74,6 +84,8 @@ class UsuarioTest {
 
 	}
 	
+
+	@DisplayName("Deveria procurar um usuario pelo login")
 	@Test
 	void testeUsuarioProcuraPorLogin(){
 		Usuario users = new Usuario("vitor","Vitor",1,"123");
@@ -86,6 +98,8 @@ class UsuarioTest {
 		Assertions.assertThat(logado).isNotEmpty();
 
 	}
+
+	@DisplayName("Deveria procurar um usuario pelo numero OAB")
 	@Test
 	void testeUsuarioProcuraPorNumeroOAB(){
 		Usuario users = new Usuario("vitor","Vitor",1,"123");

@@ -54,13 +54,15 @@ public class Processos {
 			Cliente cliente,
 			Usuario usuario, 
 			String descricao,
-			String nome) {
+			String nome,
+			LocalDate dataCriacao) {
 		this.nroProcesso = nroProcesso;
 		this.status = status;
 		this.cliente = cliente;
 		this.usuario = usuario;
 		this.descricao = descricao;
 		this.nome = nome;
+		this.dataCriacao=dataCriacao;
 	}
 
 	public Integer getId() {
