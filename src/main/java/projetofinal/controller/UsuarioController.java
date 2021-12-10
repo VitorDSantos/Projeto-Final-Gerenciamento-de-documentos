@@ -37,7 +37,7 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@PostMapping("/aplication")
+	@PostMapping
 	@Transactional
 	@CacheEvict(value = "Users", allEntries = true)
 	public ResponseEntity<String> adicionar(@RequestBody @Valid FormUsuario userForm) {
