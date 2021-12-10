@@ -12,7 +12,6 @@ import projetofinal.dto.ProcessosDto;
 import projetofinal.form.FormProcessos;
 import projetofinal.form.FormProcessosUpd;
 import projetofinal.model.Processos;
-import projetofinal.repository.DocumentoRepository;
 import projetofinal.repository.ProcessosRepository;
 import projetofinal.repository.UsuarioRepository;
 
@@ -25,12 +24,6 @@ public class ProcessosService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	@Autowired
-	private DocumentoRepository documentoRepository;
-	
-	//@Autowired
-	//private ClienteRepository clienteRepository;
-	
 	public void cadastrar(FormProcessos formProcessos) {
 		Processos novoProcesso = new Processos();
 		
@@ -39,7 +32,7 @@ public class ProcessosService {
 		novoProcesso.setStatus(formProcessos.getStatus());
 		novoProcesso.setNroProcesso(formProcessos.getNroProcesso());
 		novoProcesso.setUsuario(usuarioRepository.getById(formProcessos.getUsuario()));
-	
+		
 		processosRepository.save(novoProcesso);
 	
 	}

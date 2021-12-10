@@ -1,7 +1,6 @@
 package projetofinal.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -21,12 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import projetofinal.dto.DocumentoDto;
 import projetofinal.dto.UsuarioDto;
-import projetofinal.form.FormDocumento;
 import projetofinal.form.FormUsuario;
-import projetofinal.model.Usuario;
-import projetofinal.repository.UsuarioRepository;
 import projetofinal.service.UsuarioService;
 
 

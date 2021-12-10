@@ -7,7 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import projetofinal.model.Processos;
-import projetofinal.model.Usuario;
 
 
 public interface ProcessosRepository extends JpaRepository <Processos,Integer>{
@@ -20,7 +19,5 @@ public interface ProcessosRepository extends JpaRepository <Processos,Integer>{
 	Processos getById(Integer id);
 	
 	void deleteByNroProcesso(Integer nroProcesso);
-
-//	Page<Processos> findByStatus(Status status, Pageable paginacao);
 
 }

@@ -5,16 +5,10 @@ import javax.persistence.Enumerated;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import projetofinal.model.Cliente;
-import projetofinal.model.Documento;
-import projetofinal.model.Processos;
+
 import projetofinal.model.Status;
-import projetofinal.model.Usuario;
-import projetofinal.repository.ProcessosRepository;
 
 public class FormProcessos {
-
-	private Cliente cliente;
 
 	@NotNull
 	@Enumerated(EnumType.STRING)
@@ -36,15 +30,16 @@ public class FormProcessos {
 
 	private Long usuario;
 
+	private Integer cliente;
 	
 	
-	public Cliente getCliente() {
+	public Integer getCliente() {
 		return cliente;
 	}
 
 
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(Integer cliente) {
 		this.cliente = cliente;
 	}
 
@@ -119,23 +114,5 @@ public class FormProcessos {
 	public void setUsuario(Long usuario) {
 		this.usuario = usuario;
 	}
-
-
-
-	// public Processos converte(ProcessosRepository processosRepository) {
-	// List<Processos> processos= processosRepository.findAll();
-	// return new Processos (nroProcesso, status, cliente, documento, usuario);
-	// }
-	//public Processos atualiza(int id, Integer numeroprocesso, ProcessosRepository processosRepository) {
-	//	Processos processos = processosRepository.findById(id);
-	//	processos.setCliente(this.cliente);
-		// processos.setDataCriacao(this.dataCriacao);
-	//	processos.setDescricao(this.descricao);
-	//	processos.setDocumento(this.documento);
-	//	processos.setNome(this.nome);
-	//	processos.setUsuario(this.usuario);
-	//	processos.setStatus(this.status);
-	//	return processos;
-	//}
 
 }

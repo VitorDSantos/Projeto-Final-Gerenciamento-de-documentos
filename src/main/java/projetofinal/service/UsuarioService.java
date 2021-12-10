@@ -26,7 +26,7 @@ public class UsuarioService {
 		cadastroUser.setLogin(formUsuario.getLogin());
 		cadastroUser.setSenha(formUsuario.getSenha());
 		cadastroUser.setNumeroOAB(formUsuario.getNumeroOAB());
-
+		
 		usuarioRepository.save(cadastroUser);
 	}
 

@@ -21,9 +21,6 @@ public class Processos {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@ManyToOne
-	private Cliente cliente;
-	
 	@Enumerated(EnumType.STRING)
 	private Status status;
 	
@@ -43,6 +40,10 @@ public class Processos {
 	@ManyToOne
 	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
+	
+	@ManyToOne
+	@JoinColumn(name="cliente_id")
+	private Cliente cliente;
 
 	public Processos() {
 

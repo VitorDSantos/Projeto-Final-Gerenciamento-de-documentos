@@ -13,8 +13,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import projetofinal.repository.ProcessosRepository;
 import projetofinal.repository.UsuarioRepository;
 
 @EnableWebSecurity
@@ -26,7 +24,6 @@ public class ConfiguracaoSecurity extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
-	private ProcessosRepository processosRepository;
 	
 	@Autowired
 	private TokenService tokenService;
@@ -50,7 +47,7 @@ public class ConfiguracaoSecurity extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.antMatchers(HttpMethod.POST, "/processos").authenticated()
 		.antMatchers(HttpMethod.GET, "/processos/*").authenticated()
-		.antMatchers(HttpMethod.DELETE, "/processoss/{id}").authenticated()
+		.antMatchers(HttpMethod.DELETE, "/processos/{id}").authenticated()
 		.antMatchers(HttpMethod.GET, "/processos").permitAll()
 		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
 		.antMatchers(HttpMethod.DELETE, "/api/user/*").permitAll()

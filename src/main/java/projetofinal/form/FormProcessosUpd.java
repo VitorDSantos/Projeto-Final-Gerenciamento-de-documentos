@@ -2,15 +2,9 @@ package projetofinal.form;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import projetofinal.model.Cliente;
-import projetofinal.model.Documento;
-import projetofinal.model.Processos;
+
 import projetofinal.model.Status;
-import projetofinal.model.Usuario;
-import projetofinal.repository.ProcessosRepository;
 
 public class FormProcessosUpd {
 

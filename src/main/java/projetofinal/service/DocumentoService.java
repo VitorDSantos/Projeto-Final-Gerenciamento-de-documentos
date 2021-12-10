@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import projetofinal.dto.DocumentoDto;
-import projetofinal.dto.UsuarioDto;
 import projetofinal.form.FormDocumento;
 import projetofinal.model.Documento;
 import projetofinal.repository.DocumentoRepository;
